@@ -1,5 +1,7 @@
 # Alex Weberg Computer Science Homepage
 
+A smal lchange.
+
 [Alex Weberg Biography](http://www.google.com/url?q=http://aweberg.github.io/CS121-Work/Day-01/biography.html)
 
 [Calculus Made Easy](http://www.google.com/url?q=http://pachecoep.github.io/CS121-Work/Day-01/equations.html)
