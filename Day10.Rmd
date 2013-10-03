@@ -1,0 +1,132 @@
+Day 10
+========
+### Factorial
+```{r}
+myfactorial<-function(n){
+  res<-1
+  for (k in 1:n) {
+    res<-res*k
+  }
+  return(res)
+  }
+
+myfactorial(4)
+
+```
+    
+### Sum factorial
+```{r}
+mysum<-function(n){
+  res<-0
+  for(k in 1:n) {
+  res<-res+k
+  }
+  return(res)
+  }
+
+mysum(3)
+```
+
+### Scrabble finder
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+
+findscrabble<-function(letters){
+  words<-words[grep(letters[1],words)]
+  words<-words[grep(letters[2],words)]
+  words<-words[grep(letters[3],words)]
+  return(words)
+  }
+length(findscrabble(c("b","n","r")))
+```
+
+```{r}
+findscrabble2<-function(letters){
+  for(k in 1:length(letters)){
+  words<-words[grep(letters[k],words)]
+  }
+  return(words)
+  }
+   
+length(findscrabble2(c("b","n","r","h")))
+```
+
+```{r}
+findscrabble3<-function(letters){
+  for(k in 1:length(letters)){
+  words<-words[grep(letters[k],words)]
+  if(length(words)<10)break
+  }
+  return(words)
+  }
+
+findscrabble3(c("b","n","r","x","a","c","z"))
+##No z in any of these words, however they have b,n,r,x,a,c
+```
+
+### Fibanacci Numbers
+```{r}
+fib<-function(n){
+  current<-1
+  beforeIt<-0
+  for(k in 1:n){
+    tmp<-current+beforeIt
+    beforeIt<-current
+    current<-tmp
+    }
+  return(current)
+  }
+
+fib(1)
+fib(6)
+```
+
+```{r}
+fib2<-function(n){
+  sofar=c(0,1)
+  for(k in 3:n){
+  sofar[k]<-sofar[k-1]+sofar[k-2]
+  }
+  return(sofar)
+  }
+
+fib2(8)
+fib2(20)
+```
+  
+```{r}
+
+fib3<-function(n){
+  if(n<0 | round(n) !=n){
+    warning("YOUR n SUCKS YO")
+    return(NA)
+    }
+  sofar=c(0,1)
+  for(k in 3:n){
+  sofar[k]<-sofar[k-1]+sofar[k-2]
+  }
+  return(sofar)
+  }
+
+fib3(4)
+fib3(-1)
+fib3(3.7)
+```
+
+### Prime Numbers
+```{r}
+primesieve<-function(n){
+  guess<-rep(TRUE,n)
+  inds<-1:n
+  for(k in 2:100){
+    if(guess[k]) {
+    guess[inds%%k==0 & inds>k]<-FALSE
+    }
+    }
+  return(which(guess))
+  }
+
+primesieve(3)
+primesieve(100)
+```
+          
