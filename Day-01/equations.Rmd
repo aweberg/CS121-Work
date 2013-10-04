@@ -2,7 +2,6 @@ Calculus Made Easy Exercises
 ============
 
 
-
 ## Exercises I.
 (see p. 254 for Answers.)
 
