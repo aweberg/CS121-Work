@@ -7,6 +7,6 @@
 
 [Shapes in R](http://aweberg.github.io/CS121-Work/Day-03/Shapes.html)
 
-
+[Functions](http://aweberg.github.io/CS121-Work/Day-04/Functions.html)
 
 
