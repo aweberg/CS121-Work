@@ -1,11 +1,11 @@
 # Alex Weberg Computer Science Homepage
 
 
-[Alex Weberg Biography](http://www.google.com/url?q=http://aweberg.github.io/CS121-Work/Day-01/biography.html)
+[Alex Weberg Biography](http://aweberg.github.io/CS121-Work/Day-01/biography.html)
 
-[Calculus Made Easy](http://www.google.com/url?q=http://pachecoep.github.io/CS121-Work/Day-01/equations.html)
+[Calculus Made Easy](http://aweberg.github.io/CS121-Work/Day-01/equations.html)
 
-[Shapes in R](http://www.google.com/url?q=http://pachecoep.github.io/CS121-Work/Shapes.html)
+[Shapes in R](http://aweberg.github.io/CS121-Work/Shapes.html)
 
 
 
