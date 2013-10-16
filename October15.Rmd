@@ -1,0 +1,74 @@
+October 15
+===========
+
+```{r}
+x <- 99
+f <- function(x){
+  x<-2*x
+  return(x)
+  }
+
+f(4)
+
+f <- function(){
+  x<-2*x
+  return(x)
+  }
+
+f()
+```
+
+```{r}
+f <- function(){
+  x<<-2*x
+  return(x)
+  }
+
+f()
+f(4)
+f(x)
+x
+
+f <- function(x){
+  x<<-2*x
+  return(x)
+  }
+
+f(4)
+x
+```
+
+```{r}
+y <- "hello"
+assign("y","hello",globalenv())
+
+ls(globalenv())
+
+get("y",globalenv())
+with(globalenv(),y)
+```
+
+
+
+```{r}
+
+addEm <- function(v){
+  alpha <- 0
+  for(k in 1:length(v)){
+    alpha<-alpha+v[k]
+    }
+  return(alpha)
+  }
+
+addEm(c(5,3,1))
+```
+
+```{r}
+newaddEm <- function(v){
+  if(length(v)==0)return(0)
+  return(v[1]+newaddEm(v[-1]))
+  }
+
+newaddEm(1:3)
+```
+

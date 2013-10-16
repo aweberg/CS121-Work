@@ -1,0 +1,69 @@
+October 10
+==========
+
+## Base Conversion
+```{r}
+
+baseToNumeric <- function(N,b){
+  howMany <- length(N)
+  herdsize <- b^((howMany-1):0)
+  return(sum(as.numeric(N)*herdsize))
+  }
+
+baseToNumeric(c("7","6","5","4"),8)
+
+```
+
+## As a Loop:
+```{r}
+
+convertAsALoop <- function(N,b){
+  N <- as.numeric(N)
+  sheepcount <- 0
+  boxsize <- 1
+  for(k in (length(N):1)){
+    sheepcount <- sheepcount + boxsize*N[k]
+    boxsize <- boxsize*b
+    }
+  return(sheepcount)
+  }
+
+convertAsALoop(c("7","6","5","4"),8)
+
+```
+
+## Blastoff
+```{r}
+
+blastoff <- function(x){
+  while(x != 0){
+    Sys.sleep(1)
+    cat(x,"\n")
+    x <- x-1
+    }
+  Sys.sleep(1)
+  cat("BANANAS!!!")
+  }
+
+blastoff(5)
+
+```
+
+Human Response Time:
+```{r}
+
+getData <- function(N){
+  result <- rep(NA,N)
+  for(k in 1:N){
+    before <- Sys.time()
+    readline("press return:")
+    after<-Sys.time()
+    delay <- as.numeric(after-before)
+    cat(rep("\n",20))
+    result[k]<-delay
+    Sys.sleep(runif(1,min=1,max=5))
+    }
+  return(result)
+  }
+
+```
