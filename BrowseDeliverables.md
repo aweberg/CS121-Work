@@ -19,7 +19,12 @@ IMG.thumbpage {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-style: outset}
+    border-style: outset
+    }
+span.border {
+border: thick solid #CCCCCC;
+}
+</style>
 </style>
 
 Written for BrowseDeliverables **v0.1**.
@@ -30,7 +35,35 @@ These deliverables are more or less in reverse chronological order.
 The links let you view your files as they appear on GitHub.  To edit and update your work, use the RStudio editor and the standard from RStudio: 
 > compile -> stage -> commit -> push.
 
-.....................
+=====================
+
+## Computing Numerical Derivatives
+
+... in which you use a very simple numerical scheme for computing derivatives and then package it up so that differentiating a function gives back a function.
+
+* [Assignment](http://dtkaplan.github.io/ScientificComputing/Assignments/FiniteDifferenceDifferentiation.html).  
+* Repository Path: <code>Mathematics/FiniteDifference.[html | Rmd]</code>
+* Your Files: [view HTML](http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html); [raw Rmd](http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.Rmd) 
+
+<a href='http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html&size=200'></a>
+
+
+## Reading *Huck Finn*
+
+This is a multi-step project.
+
+* [Overall goal](InteractiveHuckFinn.html)
+
+### Subdeliverable I
+
+Write an Rmd file that compiles a vector of words into HTML text, highlighting the individual words and giving a <span class="border" title="like this tooltip">tooltip</span> for each word.
+
+* [Assignment](http://dtkaplan.github.io/ScientificComputing/Assignments/ToolTips.html).  
+* Repository Path: <code>HuckFinn/ToolTips.[html | Rmd]</code>
+* Your Files: [view HTML](http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html); [raw Rmd](http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.Rmd) 
+
+<a href='http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html&size=200'></a>
+
 
 ## Recursion
 
@@ -38,7 +71,7 @@ Numerical Integration and Plotting through Recursive Partioning.
 
 Although the instructions are quite long, they are mostly just a narrative introducing the material.  
 
-* [Assignment](http://dtkaplan.github.io/ScientificComputing/Assignments/RecursionIntro.html).  You should work from the Rmd template from which assignment was generated, adding in your own work to that standard document. [link to Template](http://dtkaplan/github.io/ScientificComputing/Assignments/Recursion.Rmd)    
+* [Assignment](http://dtkaplan.github.io/ScientificComputing/Assignments/RecursionIntro.html).  You should work from the Rmd template from which assignment was generated, adding in your own work to that standard document. [link to Template](http://dtkaplan.github.io/ScientificComputing/Assignments/RecursionIntro.Rmd)    
 * Repository Path: <code>Day-13/RecursionIntro.[html | Rmd]</code>
 * Your Files: [view HTML](http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html); [raw Rmd](http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.Rmd) 
 

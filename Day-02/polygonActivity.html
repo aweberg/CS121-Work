@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Deliverables for COMP 121</title>
+<title></title>
 
 <style type="text/css">
 body, td {
@@ -173,235 +173,26 @@ hljs.initHighlightingOnLoad();
 </script>
 
 
-<!-- MathJax scripts -->
-<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
 
 </head>
 
 <body>
-<h1>Deliverables for COMP 121</h1>
+<pre><code class="r">
+## SHAPES
 
-<p>This page lists the deliverables for Comp 121 and provides links to the HTML and RMD files on your GitHub site. </p>
-
-<p><strong>You must recompile this document to see updates!</strong></p>
-
-<p>This is BrowseDeliverables <strong>v0.1</strong>.  Confirm that the line below <code>gitID</code> matches this version number, otherwise get an update <a href="http://dtkaplan.github.io/ScientificComputing/Assignments/BrowseDeliverables.Rmd">here</a> and modify the <code>gitID</code>.</p>
-
-<pre><code class="r"># Enter your GitHub ID here
-gitID &lt;- &quot;aweberg&quot;
+plot(1:2, type = &quot;n&quot;, xlim = c(1, 100), ylim = c(1, 100), xlab = &quot;&quot;, ylab = &quot;&quot;)
+angles &lt;- seq(0, 2 * pi, length = 1000)
+polygon(50 + 30 * cos(angles), 45 + 30 * sin(angles), col = &quot;#ABC7FF&quot;, border = &quot;NA&quot;)
+polygon(25 + 15 * cos(angles), 65 + 25 * sin(angles), col = &quot;#CC99FF99&quot;, border = &quot;NA&quot;)
+polygon(c(69, 85, 92, 77, 62), c(48, 48, 66, 82, 66), col = &quot;#FFFF0099&quot;, border = &quot;NA&quot;)
+polygon(c(18, 42, 42, 18), c(36, 36, 60, 60), col = &quot;#00CC0099&quot;, border = &quot;blue&quot;, 
+    lwd = 7)
+polygon(c(25, 40, 40, 25), c(8, 8, 23, 23), border = &quot;black&quot;, lwd = &quot;1&quot;, col = &quot;#FF000099&quot;)
+polygon(c(25, 40, 40, 25), c(8, 8, 23, 23), border = &quot;black&quot;, lwd = &quot;1&quot;, col = &quot;#FF000050&quot;)
 </code></pre>
 
-<style>
-IMG.thumbpage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: outset
-    }
-span.border {
-border: thick solid #CCCCCC;
-}
-</style>
-
-<p></style></p>
-
-<p>Written for BrowseDeliverables <strong>v0.1</strong>.</p>
-
-<p>These deliverables are more or less in reverse chronological order.</p>
-
-<p>The links let you view your files as they appear on GitHub.  To edit and update your work, use the RStudio editor and the standard from RStudio: </p>
-
-<blockquote>
-<p>compile -&gt; stage -&gt; commit -&gt; push.</p>
-</blockquote>
-
-<h1></h1>
-
-<h2>Computing Numerical Derivatives</h2>
-
-<p>&hellip; in which you use a very simple numerical scheme for computing derivatives and then package it up so that differentiating a function gives back a function.</p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/FiniteDifferenceDifferentiation.html">Assignment</a>.<br/></li>
-<li>Repository Path: <code>Mathematics/FiniteDifference.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html&size=200'></a></p>
-
-<h2>Reading <em>Huck Finn</em></h2>
-
-<p>This is a multi-step project.</p>
-
-<ul>
-<li><a href="InteractiveHuckFinn.html">Overall goal</a></li>
-</ul>
-
-<h3>Subdeliverable I</h3>
-
-<p>Write an Rmd file that compiles a vector of words into HTML text, highlighting the individual words and giving a <span class="border" title="like this tooltip">tooltip</span> for each word.</p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/ToolTips.html">Assignment</a>.<br/></li>
-<li>Repository Path: <code>HuckFinn/ToolTips.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html&size=200'></a></p>
-
-<h2>Recursion</h2>
-
-<p>Numerical Integration and Plotting through Recursive Partioning.</p>
-
-<p>Although the instructions are quite long, they are mostly just a narrative introducing the material.  </p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/RecursionIntro.html">Assignment</a>.  You should work from the Rmd template from which assignment was generated, adding in your own work to that standard document. <a href="http://dtkaplan.github.io/ScientificComputing/Assignments/RecursionIntro.Rmd">link to Template</a><br/></li>
-<li>Repository Path: <code>Day-13/RecursionIntro.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html&size=200'></a></p>
-
-<h2>Loops</h2>
-
-<h3>Side Effects and Inputs</h3>
-
-<p>Studying human response latency</p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/InteractingWithLoops.html">Assignment</a></li>
-<li>Repository Path: <code>Day-12/InteractingWithLoops.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-12/InteractingWithLoops.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-12/InteractingWithLoops.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-12/InteractingWithLoops.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-12/InteractingWithLoops.html&size=200'></a></p>
-
-<h3>Exercises with Loops</h3>
-
-<p>Converting numbers to and from different bases.</p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/BaseConversion.html">Assignment</a></li>
-<li>Repository Path: <code>Day-11/BaseConversion.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-11/BaseConversion.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-11/BaseConversion.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-11/BaseConversion.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-11/BaseConversion.html&size=200'></a></p>
-
-<h2>Functions</h2>
-
-<h3>Ciphers</h3>
-
-<p>Constructing a Substitution Cipher</p>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/SubstitutionCypher.html">Assignment</a></li>
-<li>Repository Path: <code>Day-11/SubstitutionCypher.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-11/SubstitutionCypher.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-11/SubstitutionCypher.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-11/SubstitutionCypher.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-11/SubstitutionCypher.html&size=200'></a></p>
-
-<h3>String Transformations</h3>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/stringTransforms.html">Assignment</a></li>
-<li>Repository Path: <code>Day-09/String-Transforms.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-09/String-Transforms.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-09/String-Transforms.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-09/String-Transforms.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-09/String-Transforms.html&size=200'></a></p>
-
-<h3>Pattern matching in character strings, <code>grep()</code></h3>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/Crosswords-and-Scrabble.html">Assignment</a></li>
-<li>Repository Path: <code>Day-07/Crosswords-and-Scrabble.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-07/Crosswords-and-Scrabble.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-07/Crosswords-and-Scrabble.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-07/Crosswords-and-Scrabble.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-07/Crosswords-and-Scrabble.html&size=200'></a></p>
-
-<h3>Numbers and Strings</h3>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/Numbers-and-Strings.html">Assignment</a></li>
-<li>Repository Path: <code>Day-06/Numbers-and-Strings.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-06/Numbers-and-Strings.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-06/Numbers-and-Strings.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-06/Numbers-and-Strings.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-06/Numbers-and-Strings.html&size=200'></a></p>
-
-<h3>Functions for Graphics</h3>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Assignments/Functions-and-Graphics.html">Assignment</a></li>
-<li>Repository Path: <code>Day-04/Functions-and-Graphics.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-04/Functions-and-Graphics.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-04/Functions-and-Graphics.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-04/Functions-and-Graphics.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-04/Functions-and-Graphics.html&size=200'></a></p>
-
-<h2>Basic Graphics</h2>
-
-<h3>Polygons</h3>
-
-<ul>
-<li><a href="http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-03/polygonActivity.html">Assignment</a></li>
-<li>Repository Path: <code>Day-02/polygonActivity.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-02/polygonActivity.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-02/polygonActivity.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-02/polygonActivity.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-02/polygonActivity.html&size=200'></a></p>
-
-<h2>Deploying to GitHub</h2>
-
-<ul>
-<li>Place an <code>index.html</code> file (compiled from <code>.Rmd</code>) on the <code>gh-pages</code> branch of your GitHub site.  This becomes the &ldquo;front page&rdquo; of your site.</li>
-<li>Repository Path: <code>index.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/index.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/index.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/index.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/index.html&size=200'></a></p>
-
-<p>The main test is that the links above should work.
-I encourage you to update your front page, that is, the <code>index.Rmd</code> -&gt; <code>index.html</code> as the semester proceeds.  It&#39;s a potentially valuable resource in advertising your skills.  Things you may want to include:</p>
-
-<ul>
-<li>a brief biography or resume-type listing</li>
-<li>highlighted links to assignments on which you did a really good job.</li>
-<li>a link to you final project (which will be an interactive, web-based GUI)</li>
-<li>links to outside resources you found useful</li>
-</ul>
-
-<h2>Markdown and \( \LaTeX \)</h2>
-
-<h3>Biography</h3>
-
-<ul>
-<li>Your biography including a work/professional picture.</li>
-<li>Repository Path: <code>Day-01/biography.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-01/biography.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-01/biography.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-01/biography.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-01/biography.html&size=200'></a></p>
-
-<h3>Equations</h3>
-
-<ul>
-<li>An Rmd -&gt; html document giving the equations in a textbook.
-<em>Calculus Made Easy</em> <a href="https://play.google.com/books/reader?id=BrhBAAAAYAAJ&amp;printsec=frontcover&amp;output=reader&amp;authuser=0&amp;hl=en&amp;pg=GBS.PA25">Exercises I</a> and <a href="https://play.google.com/books/reader?id=BrhBAAAAYAAJ&amp;printsec=frontcover&amp;output=reader&amp;authuser=0&amp;hl=en&amp;pg=GBS.PA205">Exercises XVII</a></li>
-<li>Repository Path: <code>Day-01/equations.[html | Rmd]</code></li>
-<li>Your Files: <a href="http://aweberg.github.io/CS121-Work/Day-01/equations.html">view HTML</a>; <a href="http://aweberg.github.io/CS121-Work/Day-01/equations.Rmd">raw Rmd</a> </li>
-</ul>
-
-<p><a href='http://aweberg.github.io/CS121-Work/Day-01/equations.html'><img class='thumbpage' src='http://img.bitpixels.com/getthumbnail?code=75555&url=aweberg.github.io/CS121-Work/Day-01/equations.html&size=200'></a></p>
-
-<p><a href='http://www.bitpixels.com/'>Website thumbnails provided by BitPixels</a></p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/> </p>
 
 </body>
 
