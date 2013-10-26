@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>October 17</title>
+<title>October1 2013</title>
 
 <style type="text/css">
 body, td {
@@ -178,32 +178,81 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>October 17</h1>
+<h1>October1 2013</h1>
 
-<h1>Reverse a vector, recursively</h1>
+<h2>Reverser</h2>
 
-<pre><code class="r">revrec &lt;- function(v) {
-    browser()
-    if (length(v) == 1) 
-        return(v) else {
-        c(revrec(v[-1]), v[1])
-    }
+<pre><code class="r">reverser &lt;- function(x) {
+    return(rev(strsplit(x, split = character(0))[[1]][1:nchar(x)]))
 }
 
-revrec(c(5, 4, 3, 2, 1))
+reverser &lt;- function(x) {
+    a &lt;- strsplit(x, split = character(0))[[1]]
+    b &lt;- a[rev(1:nchar(x))]
+    paste(b, collapse = &quot;&quot;)
+}
 </code></pre>
 
-<pre><code>## Called from: revrec(c(5, 4, 3, 2, 1))
-## Called from: revrec(v[-1])
-## Called from: revrec(v[-1])
-## Called from: revrec(v[-1])
-## Called from: revrec(v[-1])
+<p>Test Statements:</p>
+
+<pre><code class="r">reverser(&quot;hello&quot;)
 </code></pre>
 
-<pre><code>## [1] 1 2 3 4 5
+<pre><code>## [1] &quot;olleh&quot;
 </code></pre>
 
-<h1>Sorting a vector</h1>
+<h2>Scrambler</h2>
+
+<pre><code class="r">scrambleword &lt;- function(x) {
+    a &lt;- strsplit(x, split = character(0))[[1]]
+    b &lt;- a[sample(1:nchar(x))]
+    paste(b, collapse = &quot;&quot;)
+}
+</code></pre>
+
+<p>Test Statements:</p>
+
+<pre><code class="r">scrambleword(&quot;hello&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;eholl&quot;
+</code></pre>
+
+<h2>VowelBleeper</h2>
+
+<pre><code class="r">vowelbleep &lt;- function(x) {
+    return(gsub(&quot;[aeiou]&quot;, &quot;*&quot;, (strsplit(x, split = &quot;&quot;)[[1]][1:nchar(x)])))
+}
+</code></pre>
+
+<p>Test Statements:</p>
+
+<pre><code class="r">vowelbleep(&quot;hello&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;h&quot; &quot;*&quot; &quot;l&quot; &quot;l&quot; &quot;*&quot;
+</code></pre>
+
+<h2>L33t</h2>
+
+<pre><code class="r">L33t &lt;- function(x) {
+    a &lt;- gsub(&quot;l&quot;, &quot;1&quot;, x)
+    b &lt;- gsub(&quot;z&quot;, &quot;2&quot;, a)
+    c &lt;- gsub(&quot;e&quot;, &quot;3&quot;, b)
+    d &lt;- gsub(&quot;x&quot;, &quot;4&quot;, c)
+    e &lt;- gsub(&quot;s&quot;, &quot;5&quot;, d)
+    f &lt;- gsub(&quot;t&quot;, &quot;7&quot;, e)
+    g &lt;- gsub(&quot;b&quot;, &quot;8&quot;, f)
+    h &lt;- gsub(&quot;g&quot;, &quot;9&quot;, g)
+    i &lt;- gsub(&quot;o&quot;, &quot;0&quot;, h)
+    return(i)
+}
+
+L33t(&quot;abcdefghijklmnopqrstuvwxyz&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;a8cd3f9hijk1mn0pqr57uvw4y2&quot;
+</code></pre>
 
 </body>
 

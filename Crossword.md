@@ -12,8 +12,8 @@ length(v1)
 ## [1] 0
 ```
 
-```r
 
+```r
 v2 <- words[grepl("^..$", words) == TRUE]
 length(v2)
 ```
@@ -22,17 +22,9 @@ length(v2)
 ## [1] 85
 ```
 
-```r
 
+```r
 v3 <- words[grepl("^...$", words) == TRUE]
-```
-
-```
-## Warning: closing unused connection 5
-## (http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt)
-```
-
-```r
 length(v3)
 ```
 
@@ -40,8 +32,8 @@ length(v3)
 ## [1] 908
 ```
 
-```r
 
+```r
 v4 <- words[grepl("^....$", words) == TRUE]
 length(v4)
 ```
@@ -50,8 +42,8 @@ length(v4)
 ## [1] 3686
 ```
 
-```r
 
+```r
 v5 <- words[grepl("^.....$", words) == TRUE]
 length(v5)
 ```
@@ -60,8 +52,8 @@ length(v5)
 ## [1] 8258
 ```
 
-```r
 
+```r
 v6 <- words[grepl("^......$", words) == TRUE]
 length(v6)
 ```

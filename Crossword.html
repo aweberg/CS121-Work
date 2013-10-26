@@ -189,46 +189,35 @@ length(v1)
 <pre><code>## [1] 0
 </code></pre>
 
-<pre><code class="r">
-v2 &lt;- words[grepl(&quot;^..$&quot;, words) == TRUE]
+<pre><code class="r">v2 &lt;- words[grepl(&quot;^..$&quot;, words) == TRUE]
 length(v2)
 </code></pre>
 
 <pre><code>## [1] 85
 </code></pre>
 
-<pre><code class="r">
-v3 &lt;- words[grepl(&quot;^...$&quot;, words) == TRUE]
-</code></pre>
-
-<pre><code>## Warning: closing unused connection 5
-## (http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt)
-</code></pre>
-
-<pre><code class="r">length(v3)
+<pre><code class="r">v3 &lt;- words[grepl(&quot;^...$&quot;, words) == TRUE]
+length(v3)
 </code></pre>
 
 <pre><code>## [1] 908
 </code></pre>
 
-<pre><code class="r">
-v4 &lt;- words[grepl(&quot;^....$&quot;, words) == TRUE]
+<pre><code class="r">v4 &lt;- words[grepl(&quot;^....$&quot;, words) == TRUE]
 length(v4)
 </code></pre>
 
 <pre><code>## [1] 3686
 </code></pre>
 
-<pre><code class="r">
-v5 &lt;- words[grepl(&quot;^.....$&quot;, words) == TRUE]
+<pre><code class="r">v5 &lt;- words[grepl(&quot;^.....$&quot;, words) == TRUE]
 length(v5)
 </code></pre>
 
 <pre><code>## [1] 8258
 </code></pre>
 
-<pre><code class="r">
-v6 &lt;- words[grepl(&quot;^......$&quot;, words) == TRUE]
+<pre><code class="r">v6 &lt;- words[grepl(&quot;^......$&quot;, words) == TRUE]
 length(v6)
 </code></pre>
 

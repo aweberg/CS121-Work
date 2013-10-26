@@ -5,6 +5,7 @@ October 17
 
 ```{r}
 revrec <- function(v){
+  browser()
   if(length(v)==1)return(v)
   else{c(revrec(v[-1]),v[1])
        }
@@ -13,3 +14,11 @@ revrec <- function(v){
 revrec(c(5,4,3,2,1))
 
 ```
+
+# Sorting a vector
+```{r}
+
+
+
+
+
