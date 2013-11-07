@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>October1 2013</title>
+<title>Halloween</title>
 
 <style type="text/css">
 body, td {
@@ -178,81 +178,99 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>October1 2013</h1>
+<h1>Halloween</h1>
 
-<h2>Reverser</h2>
+<pre><code class="r">
+require(devtools)  # install if necessary
+</code></pre>
 
-<pre><code class="r">reverser &lt;- function(x) {
-    return(rev(strsplit(x, split = character(0))[[1]][1:nchar(x)]))
+<pre><code>## Loading required package: devtools
+</code></pre>
+
+<pre><code class="r">install_url(&quot;http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1.tar.gz&quot;)
+</code></pre>
+
+<pre><code>## Downloading COMP121_0.1.tar.gz from
+## http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1.tar.gz
+## Installing package from /tmp/Rtmp4xvVsu/COMP121_0.1.tar.gz Installing
+## COMP121 &#39;/usr/lib/R/bin/R&#39; --vanilla CMD INSTALL &#39;/tmp/Rtmp4xvVsu/COMP121&#39;
+## \ --library=&#39;/home/aweberg/R/x86_64-pc-linux-gnu-library/3.0&#39; \
+## --with-keep.source --install-tests
+</code></pre>
+
+<pre><code class="r">require(COMP121)
+</code></pre>
+
+<pre><code>## Loading required package: COMP121 Loading required package: jpeg Loading
+## required package: png Loading required package: RCurl Loading required
+## package: bitops Loading required package: markdown
+</code></pre>
+
+<pre><code class="r">
+puzzleURL &lt;- &quot;http://www.vistax64.com/attachments/chillout-room/9404d1231736689-spot-difference-spot02-c.jpg&quot;
+puzzle &lt;- readJPEG(getURLContent(puzzleURL))
+
+
+# ===============
+
+readImageURL &lt;- function(URL) {
+    isJPEG &lt;- grepl(&quot;[.jpg$|.jpeg$]&quot;, URL)
+
+    if (isJPEG) 
+        image &lt;- readJPEG(getURLContent(URL)) else image &lt;- readPNG(getURLContent(URL))
+
+}
+readImageURL(puzzleURL)
+# ===============
+splitThePuzzle &lt;- function(puzzle) {
+    sz &lt;- dim(puzzle)
+    mid &lt;- sz[2]/2
+    left &lt;- puzzle[, 1:mid, ]
+    right &lt;- puzzle[, (mid + 1):sz[2], ]
+    return(list(left = left, right = right))
 }
 
-reverser &lt;- function(x) {
-    a &lt;- strsplit(x, split = character(0))[[1]]
-    b &lt;- a[rev(1:nchar(x))]
-    paste(b, collapse = &quot;&quot;)
-}
-</code></pre>
 
-<p>Test Statements:</p>
+# ================
 
-<pre><code class="r">reverser(&quot;hello&quot;)
-</code></pre>
+# Generate a plane of colors
 
-<pre><code>## [1] &quot;olleh&quot;
-</code></pre>
-
-<h2>Scrambler</h2>
-
-<pre><code class="r">scrambleword &lt;- function(x) {
-    a &lt;- strsplit(x, split = character(0))[[1]]
-    b &lt;- a[sample(1:nchar(x))]
-    paste(b, collapse = &quot;&quot;)
-}
-</code></pre>
-
-<p>Test Statements:</p>
-
-<pre><code class="r">scrambleword(&quot;hello&quot;)
-</code></pre>
-
-<pre><code>## [1] &quot;oelhl&quot;
-</code></pre>
-
-<h2>VowelBleeper</h2>
-
-<pre><code class="r">vowelbleep &lt;- function(x) {
-    return(gsub(&quot;[aeiou]&quot;, &quot;*&quot;, (strsplit(x, split = &quot;&quot;)[[1]][1:nchar(x)])))
-}
-</code></pre>
-
-<p>Test Statements:</p>
-
-<pre><code class="r">vowelbleep(&quot;hello&quot;)
-</code></pre>
-
-<pre><code>## [1] &quot;h&quot; &quot;*&quot; &quot;l&quot; &quot;l&quot; &quot;*&quot;
-</code></pre>
-
-<h2>L33t</h2>
-
-<pre><code class="r">L33t &lt;- function(x) {
-    a &lt;- gsub(&quot;l&quot;, &quot;1&quot;, x)
-    b &lt;- gsub(&quot;z&quot;, &quot;2&quot;, a)
-    c &lt;- gsub(&quot;e&quot;, &quot;3&quot;, b)
-    d &lt;- gsub(&quot;x&quot;, &quot;4&quot;, c)
-    e &lt;- gsub(&quot;s&quot;, &quot;5&quot;, d)
-    f &lt;- gsub(&quot;t&quot;, &quot;7&quot;, e)
-    g &lt;- gsub(&quot;b&quot;, &quot;8&quot;, f)
-    h &lt;- gsub(&quot;g&quot;, &quot;9&quot;, g)
-    i &lt;- gsub(&quot;o&quot;, &quot;0&quot;, h)
-    return(i)
+## Utility Functions
+ShowImage &lt;- function(image) {
+    size &lt;- dim(image)
+    canvas(x = c(1, size[2]), y = c(1, size[1]), asp = 1)
+    rasterImage(image, 1, 1, size[2], size[1])
 }
 
-L33t(&quot;abcdefghijklmnopqrstuvwxyz&quot;)
+planeBind &lt;- function(red, green, blue) {
+    array(c(red, green, blue), dim &lt;- c(dim(red)[1], dim(red)[2], 3))
+}
+# ==========================
+colorPlane &lt;- function(npixels = 50, howMuchBlue = 0.5) {
+
+    x &lt;- seq(0, 1, length = npixels)
+
+    # initialize state
+    red &lt;- matrix(0, nrow = npixels, ncol = npixels)
+    for (k in 1:npixels) {
+        # update
+        red[, k] &lt;- cbind(x)
+    }
+
+    green &lt;- matrix(0, nrow = npixels, ncol = npixels)
+    for (k in 1:npixels) {
+        green[k, ] &lt;- rbind(x)
+    }
+
+    blue &lt;- matrix(howMuchBlue, nrow = npixels, ncol = npixels)
+
+    return(planeBind(red, green, blue))
+}
+
+ShowImage(colorPlane(howMuchBlue = 0.5, npixels = 50))
 </code></pre>
 
-<pre><code>## [1] &quot;a8cd3f9hijk1mn0pqr57uvw4y2&quot;
-</code></pre>
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"/> </p>
 
 </body>
 

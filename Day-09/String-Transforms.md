@@ -45,7 +45,7 @@ scrambleword("hello")
 ```
 
 ```
-## [1] "eholl"
+## [1] "oelhl"
 ```
 
 

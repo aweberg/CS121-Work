@@ -195,22 +195,102 @@ giveoutliers(c(1, 2, 3, 4, 22))
 <pre><code>## [1]  1 22
 </code></pre>
 
-<pre><code class="r">outlier &lt;- function(v) {
-    a &lt;- quantile(v)
-    b &lt;- a[[2]]
-    c &lt;- a[[4]]
-    if (v &lt; b) 
-        return(TRUE)
+<pre><code class="r">outlier &lt;- function(v){
+  a &lt;-quantile(v)
+  b &lt;- a[[2]]
+  c &lt;- a[[4]]
+  if(v &lt; b else v&gt;c)return(TRUE)
+  }
+
+outlier(c(1,2,3,22))
+</code></pre>
+
+<h2>Basic Statistics</h2>
+
+<pre><code class="r">outlier &lt;- function(x) {
+    qs &lt;- quantile(x, probs = c(0.25, 0.75))
+    width &lt;- 1.5 * (qs[2] - qs[1])
+    top &lt;- width + qs[2]
+    bottom &lt;- qs[1] - width
+    x[(x &lt; bottom) | (x &gt; top)]
 }
-
-outlier(c(1, 2, 3, 22))
+outlier(c(1, 50, 49, 51, 240))
 </code></pre>
 
-<pre><code>## Warning: the condition has length &gt; 1 and only the first element will be
-## used
+<pre><code>## [1]   1 240
 </code></pre>
 
-<pre><code>## [1] TRUE
+<h2>Numbers and Languages</h2>
+
+<pre><code class="r">EnglishNumbers &lt;- c(&quot;zero&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;, &quot;seven&quot;, 
+    &quot;eight&quot;, &quot;nine&quot;)
+digitToWord &lt;- function(n, language) {
+    return(language[n + 1])
+}
+digitToWord(4, EnglishNumbers)
+</code></pre>
+
+<pre><code>## [1] &quot;four&quot;
+</code></pre>
+
+<h2>Help for Crossword Puzzles</h2>
+
+<pre><code class="r">lettersMatch &lt;- function(words, pattern) {
+    words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+    analyze &lt;- grepl(pattern, words)
+    return(words[analyze])
+}
+# 7 letter words starting with &#39;b&#39; ending in &#39;ing&#39;
+lettersMatch(words, &quot;^b...ing&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;babying&quot;    &quot;baching&quot;    &quot;backing&quot;    &quot;backings&quot;   &quot;badging&quot;   
+##   [6] &quot;baffing&quot;    &quot;bagging&quot;    &quot;baggings&quot;   &quot;bailing&quot;    &quot;baiting&quot;   
+##  [11] &quot;balding&quot;    &quot;balking&quot;    &quot;balling&quot;    &quot;banding&quot;    &quot;banging&quot;   
+##  [16] &quot;banking&quot;    &quot;bankings&quot;   &quot;banning&quot;    &quot;barbing&quot;    &quot;barding&quot;   
+##  [21] &quot;barfing&quot;    &quot;barging&quot;    &quot;barking&quot;    &quot;barring&quot;    &quot;bashing&quot;   
+##  [26] &quot;basking&quot;    &quot;basting&quot;    &quot;bastings&quot;   &quot;bathing&quot;    &quot;batting&quot;   
+##  [31] &quot;battings&quot;   &quot;batwing&quot;    &quot;bawling&quot;    &quot;beading&quot;    &quot;beadings&quot;  
+##  [36] &quot;beaming&quot;    &quot;beaning&quot;    &quot;bearing&quot;    &quot;bearings&quot;   &quot;beating&quot;   
+##  [41] &quot;beatings&quot;   &quot;becking&quot;    &quot;bedding&quot;    &quot;beddings&quot;   &quot;beefing&quot;   
+##  [46] &quot;beeping&quot;    &quot;befringe&quot;   &quot;befringed&quot;  &quot;befringes&quot;  &quot;befringing&quot;
+##  [51] &quot;begging&quot;    &quot;belling&quot;    &quot;belting&quot;    &quot;beltings&quot;   &quot;belying&quot;   
+##  [56] &quot;bending&quot;    &quot;besting&quot;    &quot;betting&quot;    &quot;biasing&quot;    &quot;bibbing&quot;   
+##  [61] &quot;bidding&quot;    &quot;biddings&quot;   &quot;biffing&quot;    &quot;bigging&quot;    &quot;biggings&quot;  
+##  [66] &quot;bilging&quot;    &quot;bilking&quot;    &quot;billing&quot;    &quot;billings&quot;   &quot;binding&quot;   
+##  [71] &quot;bindings&quot;   &quot;binning&quot;    &quot;birding&quot;    &quot;birling&quot;    &quot;birlings&quot;  
+##  [76] &quot;birring&quot;    &quot;bitting&quot;    &quot;bittings&quot;   &quot;blaming&quot;    &quot;blaring&quot;   
+##  [81] &quot;blawing&quot;    &quot;blazing&quot;    &quot;blowing&quot;    &quot;blueing&quot;    &quot;blueings&quot;  
+##  [86] &quot;bluming&quot;    &quot;boating&quot;    &quot;boatings&quot;   &quot;bobbing&quot;    &quot;bodying&quot;   
+##  [91] &quot;bogging&quot;    &quot;boiling&quot;    &quot;bolling&quot;    &quot;bolting&quot;    &quot;bombing&quot;   
+##  [96] &quot;bonding&quot;    &quot;bonging&quot;    &quot;booking&quot;    &quot;bookings&quot;   &quot;booming&quot;   
+## [101] &quot;booting&quot;    &quot;boozing&quot;    &quot;bopping&quot;    &quot;bossing&quot;    &quot;bousing&quot;   
+## [106] &quot;bowling&quot;    &quot;bowlings&quot;   &quot;bowsing&quot;    &quot;bracing&quot;    &quot;bracings&quot;  
+## [111] &quot;braking&quot;    &quot;braving&quot;    &quot;braying&quot;    &quot;brazing&quot;    &quot;brewing&quot;   
+## [116] &quot;brewings&quot;   &quot;bribing&quot;    &quot;brining&quot;    &quot;bruting&quot;    &quot;bucking&quot;   
+## [121] &quot;budding&quot;    &quot;budging&quot;    &quot;buffing&quot;    &quot;bugging&quot;    &quot;bugling&quot;   
+## [126] &quot;bulging&quot;    &quot;bulking&quot;    &quot;bulling&quot;    &quot;bumming&quot;    &quot;bumping&quot;   
+## [131] &quot;bunging&quot;    &quot;bunking&quot;    &quot;bunting&quot;    &quot;buntings&quot;   &quot;buoying&quot;   
+## [136] &quot;burking&quot;    &quot;burling&quot;    &quot;burning&quot;    &quot;burnings&quot;   &quot;burping&quot;   
+## [141] &quot;burring&quot;    &quot;burying&quot;    &quot;bushing&quot;    &quot;bushings&quot;   &quot;busking&quot;   
+## [146] &quot;bussing&quot;    &quot;bussings&quot;   &quot;busting&quot;    &quot;busying&quot;    &quot;butting&quot;   
+## [151] &quot;buzzing&quot;    &quot;byrling&quot;
+</code></pre>
+
+<h2>Have your pi two ways</h2>
+
+<pre><code class="r">piSeries &lt;- function(n) {
+    state &lt;- 0
+    for (k in 1:(length(n))) {
+        result &lt;- ((-1)^(k + 1))/(2 * k - 1)
+        state &lt;- state + result
+    }
+    return(state * 4)
+}
+piSeries(1:10000)
+</code></pre>
+
+<pre><code>## [1] 3.141
 </code></pre>
 
 </body>
