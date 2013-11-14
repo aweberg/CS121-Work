@@ -222,3 +222,29 @@ length(v22)
 ## [1] 0
 ```
 
+
+
+
+```r
+
+wordLength<-function(x){
+  list<-c()
+  for(k in 1:length(words)){
+    a<-strsplit(words[k],"")
+    b<-a[[1]]
+    c<-length(b)==x
+    list<-c(list,c)}
+  d<-which(list==TRUE)
+  return(length(d))
+  }
+
+wordLength(2)
+
+wordLength2 <- function(x){
+  if x==1{v=""}|
+  if x==2{v="."} 
+  list<-c("")
+```
+
+v20<-words[grepl("^....................$",words)==TRUE]
+length(v20)

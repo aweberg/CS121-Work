@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>October 10</title>
+<title>November7</title>
 
 <style type="text/css">
 body, td {
@@ -178,83 +178,21 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>October 10</h1>
+<h1>November7</h1>
 
-<h2>Base Conversion</h2>
-
-<pre><code class="r">
-baseToNumeric &lt;- function(N, b) {
-    howMany &lt;- length(N)
-    herdsize &lt;- b^((howMany - 1):0)
-    return(sum(as.numeric(N) * herdsize))
-}
-
-baseToNumeric(c(&quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;), 8)
-</code></pre>
-
-<pre><code>## [1] 4012
-</code></pre>
-
-<h2>As a Loop:</h2>
-
-<pre><code class="r">
-convertAsALoop &lt;- function(N, b) {
-    N &lt;- as.numeric(N)
-    sheepcount &lt;- 0
-    boxsize &lt;- 1
-    for (k in (length(N):1)) {
-        sheepcount &lt;- sheepcount + boxsize * N[k]
-        boxsize &lt;- boxsize * b
-    }
-    return(sheepcount)
-}
-
-convertAsALoop(c(&quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;), 8)
-</code></pre>
-
-<pre><code>## [1] 4012
-</code></pre>
-
-<h2>Blastoff</h2>
-
-<pre><code class="r">
-blastoff &lt;- function(x) {
-    while (x != 0) {
-        Sys.sleep(1)
-        cat(x, &quot;\n&quot;)
-        x &lt;- x - 1
-    }
-    Sys.sleep(1)
-    cat(&quot;BANANAS!!!&quot;)
-}
-
-blastoff(5)
-</code></pre>
-
-<pre><code>## 5 
-## 4 
-## 3 
-## 2 
-## 1 
-## BANANAS!!!
-</code></pre>
-
-<p>Human Response Time:</p>
-
-<pre><code class="r">
-getData &lt;- function(N) {
-    result &lt;- rep(NA, N)
-    for (k in 1:N) {
-        before &lt;- Sys.time()
-        readline(&quot;press return:&quot;)
-        after &lt;- Sys.time()
-        delay &lt;- as.numeric(after - before)
-        cat(rep(&quot;\n&quot;, 20))
-        result[k] &lt;- delay
-        Sys.sleep(runif(1, min = 1, max = 5))
-    }
-    return(result)
-}
+<pre><code class="r">ourTree &lt;- list(&quot;The World&quot;,
+            list(&quot;Non-Continental&quot;, list(&quot;Fiji&quot;,&quot;New Zealand&quot;)),
+                list(&quot;Continental&quot;,
+                      list(&quot;Africa&quot;, list(&quot;Ghana&quot;, &quot;Kenya&quot;, &quot;Morocco&quot;)),
+                      list(&quot;Americas&quot;,
+                            list(&quot;North&quot;, list(&quot;Canada&quot;,&quot;Mexico&quot;)),
+                            list(&quot;South&quot;,list(&quot;Chile&quot;,&quot;Bolivia&quot;))),
+                      list(&quot;Antarctica&quot;),
+                      list(&quot;Asia&quot;, 
+                            list(&quot;Thailand&quot;, &quot;Bhutan&quot;, &quot;Mongolia&quot;)),
+                      list(&quot;Australia&quot;),
+                      list(&quot;Europe&quot;,
+                            list(&quot;Slovakia&quot;, &quot;Romania&quot;)))
 </code></pre>
 
 </body>

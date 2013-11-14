@@ -352,6 +352,29 @@ length(v22)
 <pre><code>## [1] 0
 </code></pre>
 
+<pre><code class="r">
+wordLength&lt;-function(x){
+  list&lt;-c()
+  for(k in 1:length(words)){
+    a&lt;-strsplit(words[k],&quot;&quot;)
+    b&lt;-a[[1]]
+    c&lt;-length(b)==x
+    list&lt;-c(list,c)}
+  d&lt;-which(list==TRUE)
+  return(length(d))
+  }
+
+wordLength(2)
+
+wordLength2 &lt;- function(x){
+  if x==1{v=&quot;&quot;}|
+  if x==2{v=&quot;.&quot;} 
+  list&lt;-c(&quot;&quot;)
+</code></pre>
+
+<p>v20&lt;-words[grepl(&ldquo;<sup>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..$&rdquo;,words)==TRUE]</sup>
+length(v20)</p>
+
 </body>
 
 </html>

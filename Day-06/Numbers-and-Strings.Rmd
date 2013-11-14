@@ -66,5 +66,3 @@ piSeries <- function(n){
 piSeries(1:10000)
 ```
 
-
-
