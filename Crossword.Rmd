@@ -77,7 +77,7 @@ length(v22)
 ```
 
 
-```{r eval=FALSE}
+```{r}
 
 wordLength<-function(x){
   list<-c()
@@ -91,11 +91,14 @@ wordLength<-function(x){
   }
 
 wordLength(2)
-
+```
+```{r eval=FALSE}
 wordLength2 <- function(x){
-  if x==1{v=""}|
-  if x==2{v="."} 
-  list<-c("")
+  if x==1 v=""|
+  if x==2 v="." 
+  list<-c("^v$")
+  return(list)
+  }
 ```
 v20<-words[grepl("^....................$",words)==TRUE]
 length(v20)

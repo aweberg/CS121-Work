@@ -1,0 +1,19 @@
+NOV 21
+=======
+
+```{r}
+require(mosaic)
+DataExample <- KidsFeet[seq(1,nrow(KidsFeet),by=4),
+                        c("sex","width","length","domhand")]
+   
+DataExample
+
+
+
+
+
+
+
+
+
+```

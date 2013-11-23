@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Crossword</title>
+<title>Crosswords-and-Scrabble</title>
 
 <style type="text/css">
 body, td {
@@ -178,209 +178,305 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>Crossword</h1>
+<h1>Crosswords-and-Scrabble</h1>
 
 <pre><code class="r">words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+</code></pre>
 
-v1 &lt;- words[grepl(&quot;^.$&quot;, words) == TRUE]
-length(v1)
+<h2>Summarizing the List</h2>
+
+<h3>Report of Word Lengths</h3>
+
+<p>(Slow version)</p>
+
+<pre><code class="r">wordLength &lt;- function(x) {
+    list &lt;- c()
+    a &lt;- sapply(words, nchar)
+    for (k in 1:length(words)) {
+        list &lt;- c(list, a[[k]] == x)
+    }
+    return(sum(list))
+}
+wordLength(3)
+</code></pre>
+
+<p>(Fast version)  </p>
+
+<pre><code class="r">wordLength &lt;- function(x) {
+    list &lt;- c()
+    a &lt;- sapply(words, nchar)
+    for (k in 1:length(words)) {
+        if (a[[k]] == x) {
+            list &lt;- c(list, a[[k]])
+        } else {
+        }
+    }
+    return(length(list))
+}
+</code></pre>
+
+<pre><code class="r">wordLength(1)
 </code></pre>
 
 <pre><code>## [1] 0
 </code></pre>
 
-<pre><code class="r">v2 &lt;- words[grepl(&quot;^..$&quot;, words) == TRUE]
-length(v2)
+<pre><code class="r">wordLength(2)
 </code></pre>
 
 <pre><code>## [1] 85
 </code></pre>
 
-<pre><code class="r">v3 &lt;- words[grepl(&quot;^...$&quot;, words) == TRUE]
-length(v3)
+<pre><code class="r">wordLength(3)
 </code></pre>
 
 <pre><code>## [1] 908
 </code></pre>
 
-<pre><code class="r">v4 &lt;- words[grepl(&quot;^....$&quot;, words) == TRUE]
-length(v4)
+<pre><code class="r">wordLength(4)
 </code></pre>
 
 <pre><code>## [1] 3686
 </code></pre>
 
-<pre><code class="r">v5 &lt;- words[grepl(&quot;^.....$&quot;, words) == TRUE]
-length(v5)
+<pre><code class="r">wordLength(5)
 </code></pre>
 
 <pre><code>## [1] 8258
 </code></pre>
 
-<pre><code class="r">v6 &lt;- words[grepl(&quot;^......$&quot;, words) == TRUE]
-length(v6)
+<pre><code class="r">wordLength(6)
 </code></pre>
 
 <pre><code>## [1] 14374
 </code></pre>
 
-<pre><code class="r">
-v7 &lt;- words[grepl(&quot;^.......$&quot;, words) == TRUE]
-length(v7)
+<pre><code class="r">wordLength(7)
 </code></pre>
 
 <pre><code>## [1] 21727
 </code></pre>
 
-<pre><code class="r">
-v8 &lt;- words[grepl(&quot;^........$&quot;, words) == TRUE]
-length(v8)
+<pre><code class="r">wordLength(8)
 </code></pre>
 
 <pre><code>## [1] 26447
 </code></pre>
 
-<pre><code class="r">
-v9 &lt;- words[grepl(&quot;^.........$&quot;, words) == TRUE]
-length(v9)
+<pre><code class="r">wordLength(9)
 </code></pre>
 
 <pre><code>## [1] 16658
 </code></pre>
 
-<pre><code class="r">
-v10 &lt;- words[grepl(&quot;^..........$&quot;, words) == TRUE]
-length(v10)
+<pre><code class="r">wordLength(10)
 </code></pre>
 
 <pre><code>## [1] 9199
 </code></pre>
 
-<pre><code class="r">
-v11 &lt;- words[grepl(&quot;^...........$&quot;, words) == TRUE]
-length(v11)
+<pre><code class="r">wordLength(11)
 </code></pre>
 
 <pre><code>## [1] 5296
 </code></pre>
 
-<pre><code class="r">
-v12 &lt;- words[grepl(&quot;^............$&quot;, words) == TRUE]
-length(v12)
+<pre><code class="r">wordLength(12)
 </code></pre>
 
 <pre><code>## [1] 3166
 </code></pre>
 
-<pre><code class="r">
-v13 &lt;- words[grepl(&quot;^.............$&quot;, words) == TRUE]
-length(v13)
+<pre><code class="r">wordLength(13)
 </code></pre>
 
 <pre><code>## [1] 1960
 </code></pre>
 
-<pre><code class="r">
-v14 &lt;- words[grepl(&quot;^..............$&quot;, words) == TRUE]
-length(v14)
+<pre><code class="r">wordLength(14)
 </code></pre>
 
 <pre><code>## [1] 1023
 </code></pre>
 
-<pre><code class="r">
-v15 &lt;- words[grepl(&quot;^...............$&quot;, words) == TRUE]
-length(v15)
+<pre><code class="r">wordLength(15)
 </code></pre>
 
 <pre><code>## [1] 557
 </code></pre>
 
-<pre><code class="r">
-v16 &lt;- words[grepl(&quot;^................$&quot;, words) == TRUE]
-length(v16)
+<pre><code class="r">wordLength(16)
 </code></pre>
 
 <pre><code>## [1] 261
 </code></pre>
 
-<pre><code class="r">
-v17 &lt;- words[grepl(&quot;^.................$&quot;, words) == TRUE]
-length(v17)
+<pre><code class="r">wordLength(17)
 </code></pre>
 
 <pre><code>## [1] 132
 </code></pre>
 
-<pre><code class="r">
-v18 &lt;- words[grepl(&quot;^..................$&quot;, words) == TRUE]
-length(v18)
+<pre><code class="r">wordLength(18)
 </code></pre>
 
 <pre><code>## [1] 48
 </code></pre>
 
-<pre><code class="r">
-v19 &lt;- words[grepl(&quot;^...................$&quot;, words) == TRUE]
-length(v19)
+<pre><code class="r">wordLength(19)
 </code></pre>
 
 <pre><code>## [1] 16
 </code></pre>
 
-<pre><code class="r">
-v20 &lt;- words[grepl(&quot;^....................$&quot;, words) == TRUE]
-length(v20)
+<pre><code class="r">wordLength(20)
 </code></pre>
 
 <pre><code>## [1] 5
 </code></pre>
 
-<pre><code class="r">
-v21 &lt;- words[grepl(&quot;^.....................$&quot;, words) == TRUE]
-length(v21)
+<pre><code class="r">wordLength(21)
 </code></pre>
 
 <pre><code>## [1] 3
 </code></pre>
 
-<pre><code class="r">
-v22 &lt;- words[grepl(&quot;^......................$&quot;, words) == TRUE]
-length(v22)
+<pre><code class="r">wordLength(22)
 </code></pre>
 
 <pre><code>## [1] 0
 </code></pre>
 
-<pre><code class="r">
-wordLength &lt;- function(x) {
+<h3>100 Longest Words</h3>
+
+<p>Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.</p>
+
+<pre><code class="r">wordList &lt;- function(x) {
     list &lt;- c()
+    a &lt;- sapply(words, nchar)
     for (k in 1:length(words)) {
-        a &lt;- strsplit(words[k], &quot;&quot;)
-        b &lt;- a[[1]]
-        c &lt;- length(b) == x
-        list &lt;- c(list, c)
+        if (a[[k]] == x) {
+            list &lt;- c(list, words[k])
+        } else {
+        }
     }
-    d &lt;- which(list == TRUE)
-    return(length(d))
+    return(list)
 }
-
-wordLength(2)
+hunWords &lt;- c(wordList(21), wordList(20), wordList(19), wordList(18), wordList(17))
 </code></pre>
 
-<pre><code>## [1] 85
+<pre><code class="r">length(hunWords)
 </code></pre>
 
-<pre><code class="r">wordLength2 &lt;- function(x){
-  if x==1 v=&quot;&quot;|
-  if x==2 v=&quot;.&quot; 
-  list&lt;-c(&quot;^v$&quot;)
-  return(list)
-  }
+<pre><code>## [1] 204
 </code></pre>
 
-<p>v20&lt;-words[grepl(&ldquo;<sup>&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..$&rdquo;,words)==TRUE]</sup>
-length(v20)</p>
+<pre><code class="r">hunWords
+</code></pre>
+
+<pre><code>##   [1] &quot;counterdemonstrations&quot; &quot;hyperaggressivenesses&quot;
+##   [3] &quot;microminiaturizations&quot; &quot;counterdemonstration&quot; 
+##   [5] &quot;counterdemonstrators&quot;  &quot;hypersensitivenesses&quot; 
+##   [7] &quot;microminiaturization&quot;  &quot;representativenesses&quot; 
+##   [9] &quot;anticonservationist&quot;   &quot;comprehensivenesses&quot;  
+##  [11] &quot;counterdemonstrator&quot;   &quot;counterinflationary&quot;  
+##  [13] &quot;counterpropagations&quot;   &quot;counterretaliations&quot;  
+##  [15] &quot;disinterestednesses&quot;   &quot;electrocardiographs&quot;  
+##  [17] &quot;extraconstitutional&quot;   &quot;hyperaggressiveness&quot;  
+##  [19] &quot;inappropriatenesses&quot;   &quot;inconsideratenesses&quot;  
+##  [21] &quot;interdenominational&quot;   &quot;irreconcilabilities&quot;  
+##  [23] &quot;miscellaneousnesses&quot;   &quot;multidenominational&quot;  
+##  [25] &quot;absentmindednesses&quot;    &quot;adventitiousnesses&quot;   
+##  [27] &quot;antiadministration&quot;    &quot;antidiscrimination&quot;   
+##  [29] &quot;apprehensivenesses&quot;    &quot;biodegradabilities&quot;   
+##  [31] &quot;bloodthirstinesses&quot;    &quot;cantankerousnesses&quot;   
+##  [33] &quot;characteristically&quot;    &quot;chemotherapeutical&quot;   
+##  [35] &quot;counteraccusations&quot;    &quot;counteraggressions&quot;   
+##  [37] &quot;counterpropagation&quot;    &quot;counterretaliation&quot;   
+##  [39] &quot;counterrevolutions&quot;    &quot;countersuggestions&quot;   
+##  [41] &quot;electrocardiograms&quot;    &quot;electrocardiograph&quot;   
+##  [43] &quot;feeblemindednesses&quot;    &quot;heterogenousnesses&quot;   
+##  [45] &quot;hydroelectricities&quot;    &quot;hyperconscientious&quot;   
+##  [47] &quot;hypernationalistic&quot;    &quot;hypersensitiveness&quot;   
+##  [49] &quot;hypersensitivities&quot;    &quot;indispensabilities&quot;   
+##  [51] &quot;industrializations&quot;    &quot;interinstitutional&quot;   
+##  [53] &quot;internationalizing&quot;    &quot;interrelatednesses&quot;   
+##  [55] &quot;irresponsibilities&quot;    &quot;lightheartednesses&quot;   
+##  [57] &quot;misinterpretations&quot;    &quot;misrepresentations&quot;   
+##  [59] &quot;nondiscriminations&quot;    &quot;obstreperousnesses&quot;   
+##  [61] &quot;perpendicularities&quot;    &quot;postfertilizations&quot;   
+##  [63] &quot;rehospitalizations&quot;    &quot;remunerativenesses&quot;   
+##  [65] &quot;representativeness&quot;    &quot;simultaneousnesses&quot;   
+##  [67] &quot;straightforwardest&quot;    &quot;subclassifications&quot;   
+##  [69] &quot;subconsciousnesses&quot;    &quot;superintellectuals&quot;   
+##  [71] &quot;superintelligences&quot;    &quot;unscrupulousnesses&quot;   
+##  [73] &quot;acquaintanceships&quot;     &quot;antiauthoritarian&quot;    
+##  [75] &quot;antieavesdropping&quot;     &quot;antiestablishment&quot;    
+##  [77] &quot;antimaterialistic&quot;     &quot;antimiscegenation&quot;    
+##  [79] &quot;antirevolutionary&quot;     &quot;antitechnological&quot;    
+##  [81] &quot;blameworthinesses&quot;     &quot;carnivorousnesses&quot;    
+##  [83] &quot;characterizations&quot;     &quot;circumnavigations&quot;    
+##  [85] &quot;comprehensiveness&quot;     &quot;consideratenesses&quot;    
+##  [87] &quot;constitutionality&quot;     &quot;coproprietorships&quot;    
+##  [89] &quot;counteraccusation&quot;     &quot;counteraggression&quot;    
+##  [91] &quot;counterchallenges&quot;     &quot;countercomplaints&quot;    
+##  [93] &quot;countercriticisms&quot;     &quot;counterinfluences&quot;    
+##  [95] &quot;counterrevolution&quot;     &quot;counterstrategies&quot;    
+##  [97] &quot;countersuggestion&quot;     &quot;countertendencies&quot;    
+##  [99] &quot;counterterrorisms&quot;     &quot;counterterrorists&quot;    
+## [101] &quot;cyclophosphamides&quot;     &quot;destructibilities&quot;    
+## [103] &quot;disfranchisements&quot;     &quot;disinterestedness&quot;    
+## [105] &quot;disqualifications&quot;     &quot;distinctivenesses&quot;    
+## [107] &quot;electrocardiogram&quot;     &quot;electromagnetally&quot;    
+## [109] &quot;environmentalists&quot;     &quot;extradepartmental&quot;    
+## [111] &quot;extragovernmental&quot;     &quot;foresightednesses&quot;    
+## [113] &quot;halfheartednesses&quot;     &quot;hardheartednesses&quot;    
+## [115] &quot;histopathological&quot;     &quot;homogeneousnesses&quot;    
+## [117] &quot;housewifelinesses&quot;     &quot;hydroelectrically&quot;    
+## [119] &quot;illustriousnesses&quot;     &quot;impecuniousnesses&quot;    
+## [121] &quot;impenetrabilities&quot;     &quot;inaccessibilities&quot;    
+## [123] &quot;inappropriateness&quot;     &quot;inattentivenesses&quot;    
+## [125] &quot;inconsequentially&quot;     &quot;inconsiderateness&quot;    
+## [127] &quot;incorrigibilities&quot;     &quot;indistinguishable&quot;    
+## [129] &quot;industrialization&quot;     &quot;industriousnesses&quot;    
+## [131] &quot;ineffectivenesses&quot;     &quot;ineffectualnesses&quot;    
+## [133] &quot;injudiciousnesses&quot;     &quot;inquisitivenesses&quot;    
+## [135] &quot;instrumentalities&quot;     &quot;intelligibilities&quot;    
+## [137] &quot;intemperatenesses&quot;     &quot;interdepartmental&quot;    
+## [139] &quot;intergovernmental&quot;     &quot;internationalisms&quot;    
+## [141] &quot;internationalized&quot;     &quot;internationalizes&quot;    
+## [143] &quot;interrelationship&quot;     &quot;irreconcilability&quot;    
+## [145] &quot;kaleidoscopically&quot;     &quot;magnanimousnesses&quot;    
+## [147] &quot;maintainabilities&quot;     &quot;maneuverabilities&quot;    
+## [149] &quot;mellifluousnesses&quot;     &quot;meritoriousnesses&quot;    
+## [151] &quot;microminiaturized&quot;     &quot;misappropriations&quot;    
+## [153] &quot;miscellaneousness&quot;     &quot;mischievousnesses&quot;    
+## [155] &quot;misinterpretation&quot;     &quot;mispronunciations&quot;    
+## [157] &quot;misrepresentation&quot;     &quot;mistrustfulnesses&quot;    
+## [159] &quot;misunderstandings&quot;     &quot;multidisciplinary&quot;    
+## [161] &quot;myelosuppressions&quot;     &quot;nearsightednesses&quot;    
+## [163] &quot;nondenominational&quot;     &quot;nondiscrimination&quot;    
+## [165] &quot;nondiscriminatory&quot;     &quot;nonindustrialized&quot;    
+## [167] &quot;nonproliferations&quot;     &quot;nonrepresentative&quot;    
+## [169] &quot;overconscientious&quot;     &quot;overexaggerations&quot;    
+## [171] &quot;paleoclimatologic&quot;     &quot;photoelectrically&quot;    
+## [173] &quot;photosynthesizing&quot;     &quot;picturesquenesses&quot;    
+## [175] &quot;plenipotentiaries&quot;     &quot;postbaccalaureate&quot;    
+## [177] &quot;postfertilization&quot;     &quot;postrevolutionary&quot;    
+## [179] &quot;precipitatenesses&quot;     &quot;prestidigitations&quot;    
+## [181] &quot;pretentiousnesses&quot;     &quot;professionalizing&quot;    
+## [183] &quot;programmabilities&quot;     &quot;promiscuousnesses&quot;    
+## [185] &quot;reclassifications&quot;     &quot;rehospitalization&quot;    
+## [187] &quot;repetitiousnesses&quot;     &quot;reproachfulnesses&quot;    
+## [189] &quot;resourcefulnesses&quot;     &quot;responsiblenesses&quot;    
+## [191] &quot;straightforwarder&quot;     &quot;subclassification&quot;    
+## [193] &quot;superefficiencies&quot;     &quot;superenthusiastic&quot;    
+## [195] &quot;superintellectual&quot;     &quot;superintelligence&quot;    
+## [197] &quot;superintendencies&quot;     &quot;thoughtlessnesses&quot;    
+## [199] &quot;trustworthinesses&quot;     &quot;unconsciousnesses&quot;    
+## [201] &quot;underhandednesses&quot;     &quot;undernourishments&quot;    
+## [203] &quot;venturesomenesses&quot;     &quot;wrongheadednesses&quot;
+</code></pre>
 
 </body>
 

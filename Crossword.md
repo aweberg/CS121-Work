@@ -227,23 +227,33 @@ length(v22)
 
 ```r
 
-wordLength<-function(x){
-  list<-c()
-  for(k in 1:length(words)){
-    a<-strsplit(words[k],"")
-    b<-a[[1]]
-    c<-length(b)==x
-    list<-c(list,c)}
-  d<-which(list==TRUE)
-  return(length(d))
-  }
+wordLength <- function(x) {
+    list <- c()
+    for (k in 1:length(words)) {
+        a <- strsplit(words[k], "")
+        b <- a[[1]]
+        c <- length(b) == x
+        list <- c(list, c)
+    }
+    d <- which(list == TRUE)
+    return(length(d))
+}
 
 wordLength(2)
+```
 
+```
+## [1] 85
+```
+
+
+```r
 wordLength2 <- function(x){
-  if x==1{v=""}|
-  if x==2{v="."} 
-  list<-c("")
+  if x==1 v=""|
+  if x==2 v="." 
+  list<-c("^v$")
+  return(list)
+  }
 ```
 
 v20<-words[grepl("^....................$",words)==TRUE]

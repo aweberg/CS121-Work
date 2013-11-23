@@ -1,0 +1,77 @@
+Crosswords-and-Scrabble
+======================
+
+```{r}
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+```
+## Summarizing the List
+### Report of Word Lengths
+(Slow version)
+```{r eval=FALSE}
+wordLength <- function(x){
+  list<-c()
+  a <- sapply(words,nchar)
+  for(k in 1:length(words)){
+    list<- c(list,a[[k]] == x)
+    }
+  return(sum(list))
+  }
+wordLength(3)
+```
+(Fast version)  
+```{r}  
+wordLength <- function(x){
+  list<-c()
+  a <- sapply(words,nchar)
+  for(k in 1:length(words)){
+    if(a[[k]]==x){list<-c(list,a[[k]])}
+    else{}
+    }
+  return(length(list))
+  }  
+```
+```{r}
+wordLength(1)
+wordLength(2)
+wordLength(3)
+wordLength(4)
+wordLength(5)
+wordLength(6)
+wordLength(7)
+wordLength(8)
+wordLength(9)
+wordLength(10)
+wordLength(11)
+wordLength(12)
+wordLength(13)
+wordLength(14)
+wordLength(15)
+wordLength(16)
+wordLength(17)
+wordLength(18)
+wordLength(19)
+wordLength(20)
+wordLength(21)
+wordLength(22)
+```
+
+### 100 Longest Words
+Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.
+```{r}
+wordList <- function(x){
+  list<-c()
+  a <- sapply(words,nchar)
+  for(k in 1:length(words)){
+    if(a[[k]]==x){list<-c(list,words[k])}
+    else{}
+    }
+  return(list)
+  } 
+hunWords<-c(wordList(21),wordList(20),wordList(19),wordList(18),wordList(17))
+```
+```{r}
+length(hunWords)
+hunWords
+
+```
+
