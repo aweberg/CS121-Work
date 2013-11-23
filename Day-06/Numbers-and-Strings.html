@@ -247,12 +247,13 @@ digitToWord(4, English)
 
 <h2>Help for Crossword Puzzles</h2>
 
-<pre><code class="r">lettersMatch &lt;- function(pattern) {
-    words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
-    analyze &lt;- grepl(pattern, words)
-    return(words[analyze])
+<pre><code class="r">words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+
+lettersMatch &lt;- function(x) {
+    a &lt;- grepl(x, words)
+    return(words[a])
 }
-# 7 letter words starting with &#39;b&#39; ending in &#39;ing&#39;
+
 lettersMatch(&quot;^.t..r..$&quot;)
 </code></pre>
 
@@ -272,6 +273,10 @@ lettersMatch(&quot;^.t..r..$&quot;)
     return(state * 4)
 }
 piSeries(1:10000)
+</code></pre>
+
+<pre><code>## Warning: closing unused connection 5
+## (http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt)
 </code></pre>
 
 <pre><code>## [1] 3.141

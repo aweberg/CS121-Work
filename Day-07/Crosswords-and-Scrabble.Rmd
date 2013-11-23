@@ -5,7 +5,7 @@ Crosswords-and-Scrabble
 words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
 ```
 ## Summarizing the List
-### Report of Word Lengths
+#### Report of Word Lengths
 (Slow version)
 ```{r eval=FALSE}
 wordLength <- function(x){
@@ -31,31 +31,53 @@ wordLength <- function(x){
   }  
 ```
 ```{r}
+## 1
 wordLength(1)
+## 2
 wordLength(2)
+## 3
 wordLength(3)
+## 4
 wordLength(4)
+## 5
 wordLength(5)
+## 6
 wordLength(6)
+## 7
 wordLength(7)
+## 8
 wordLength(8)
+## 9
 wordLength(9)
+## 10
 wordLength(10)
+## 11
 wordLength(11)
+## 12
 wordLength(12)
+## 13
 wordLength(13)
+## 14
 wordLength(14)
+## 15
 wordLength(15)
+## 16
 wordLength(16)
+## 17
 wordLength(17)
+## 18
 wordLength(18)
+## 19
 wordLength(19)
+## 20
 wordLength(20)
+## 21
 wordLength(21)
+## 22
 wordLength(22)
 ```
 
-### 100 Longest Words
+#### 100 Longest Words
 Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.
 ```{r}
 wordList <- function(x){
@@ -74,4 +96,81 @@ length(hunWords)
 hunWords
 
 ```
+
+#### Number of Words Beginning with Each Letter
+```{r}
+## A
+length(words[grepl("^a",words)==TRUE])
+## B
+length(words[grepl("^b",words)==TRUE])
+## C
+length(words[grepl("^c",words)==TRUE])
+## D
+length(words[grepl("^d",words)==TRUE])
+## E
+length(words[grepl("^e",words)==TRUE])
+## F
+length(words[grepl("^f",words)==TRUE])
+## G
+length(words[grepl("^g",words)==TRUE])
+## H
+length(words[grepl("^h",words)==TRUE])
+## I
+length(words[grepl("^i",words)==TRUE])
+## J
+length(words[grepl("^j",words)==TRUE])
+## K
+length(words[grepl("^k",words)==TRUE])
+## L
+length(words[grepl("^l",words)==TRUE])
+## M
+length(words[grepl("^m",words)==TRUE])
+## N
+length(words[grepl("^n",words)==TRUE])
+## O
+length(words[grepl("^o",words)==TRUE])
+## P
+length(words[grepl("^p",words)==TRUE])
+## Q
+length(words[grepl("^q",words)==TRUE])
+## R
+length(words[grepl("^r",words)==TRUE])
+## S
+length(words[grepl("^s",words)==TRUE])
+## T
+length(words[grepl("^t",words)==TRUE])
+## U
+length(words[grepl("^u",words)==TRUE])
+## V
+length(words[grepl("^v",words)==TRUE])
+## W
+length(words[grepl("^w",words)==TRUE])
+## X
+length(words[grepl("^x",words)==TRUE])
+## Y
+length(words[grepl("^y",words)==TRUE])
+## Z
+length(words[grepl("^z",words)==TRUE])
+```
+
+#### "Q" Without "U"
+```{r}
+noU<-words[grepl("q[^u]",words)==TRUE]
+noU
+```
+
+## Crossword Helper
+```{r}
+crossword <- function(x){
+  a <- grepl(x,words)
+  return(words[a])
+}
+
+crossword("^.t..r..$")
+```
+
+
+
+
+
 

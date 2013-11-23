@@ -86,12 +86,13 @@ digitToWord(7, Spanish)
 ## Help for Crossword Puzzles
 
 ```r
-lettersMatch <- function(pattern) {
-    words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
-    analyze <- grepl(pattern, words)
-    return(words[analyze])
+words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt"))
+
+lettersMatch <- function(x) {
+    a <- grepl(x, words)
+    return(words[a])
 }
-# 7 letter words starting with 'b' ending in 'ing'
+
 lettersMatch("^.t..r..$")
 ```
 
@@ -113,6 +114,11 @@ piSeries <- function(n) {
     return(state * 4)
 }
 piSeries(1:10000)
+```
+
+```
+## Warning: closing unused connection 5
+## (http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt)
 ```
 
 ```

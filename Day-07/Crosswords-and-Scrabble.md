@@ -7,7 +7,7 @@ words <- readLines(url("http://dtkaplan.github.io/ScientificComputing/Syllabus/D
 ```
 
 ## Summarizing the List
-### Report of Word Lengths
+#### Report of Word Lengths
 (Slow version)
 
 ```r
@@ -40,6 +40,7 @@ wordLength <- function(x) {
 
 
 ```r
+## 1
 wordLength(1)
 ```
 
@@ -48,6 +49,7 @@ wordLength(1)
 ```
 
 ```r
+## 2
 wordLength(2)
 ```
 
@@ -56,6 +58,7 @@ wordLength(2)
 ```
 
 ```r
+## 3
 wordLength(3)
 ```
 
@@ -64,6 +67,7 @@ wordLength(3)
 ```
 
 ```r
+## 4
 wordLength(4)
 ```
 
@@ -72,6 +76,7 @@ wordLength(4)
 ```
 
 ```r
+## 5
 wordLength(5)
 ```
 
@@ -80,6 +85,7 @@ wordLength(5)
 ```
 
 ```r
+## 6
 wordLength(6)
 ```
 
@@ -88,6 +94,7 @@ wordLength(6)
 ```
 
 ```r
+## 7
 wordLength(7)
 ```
 
@@ -96,6 +103,7 @@ wordLength(7)
 ```
 
 ```r
+## 8
 wordLength(8)
 ```
 
@@ -104,6 +112,7 @@ wordLength(8)
 ```
 
 ```r
+## 9
 wordLength(9)
 ```
 
@@ -112,6 +121,7 @@ wordLength(9)
 ```
 
 ```r
+## 10
 wordLength(10)
 ```
 
@@ -120,6 +130,7 @@ wordLength(10)
 ```
 
 ```r
+## 11
 wordLength(11)
 ```
 
@@ -128,6 +139,7 @@ wordLength(11)
 ```
 
 ```r
+## 12
 wordLength(12)
 ```
 
@@ -136,6 +148,7 @@ wordLength(12)
 ```
 
 ```r
+## 13
 wordLength(13)
 ```
 
@@ -144,6 +157,7 @@ wordLength(13)
 ```
 
 ```r
+## 14
 wordLength(14)
 ```
 
@@ -152,6 +166,7 @@ wordLength(14)
 ```
 
 ```r
+## 15
 wordLength(15)
 ```
 
@@ -160,6 +175,7 @@ wordLength(15)
 ```
 
 ```r
+## 16
 wordLength(16)
 ```
 
@@ -168,6 +184,7 @@ wordLength(16)
 ```
 
 ```r
+## 17
 wordLength(17)
 ```
 
@@ -176,6 +193,7 @@ wordLength(17)
 ```
 
 ```r
+## 18
 wordLength(18)
 ```
 
@@ -184,6 +202,7 @@ wordLength(18)
 ```
 
 ```r
+## 19
 wordLength(19)
 ```
 
@@ -192,6 +211,7 @@ wordLength(19)
 ```
 
 ```r
+## 20
 wordLength(20)
 ```
 
@@ -200,6 +220,7 @@ wordLength(20)
 ```
 
 ```r
+## 21
 wordLength(21)
 ```
 
@@ -208,6 +229,7 @@ wordLength(21)
 ```
 
 ```r
+## 22
 wordLength(22)
 ```
 
@@ -216,7 +238,7 @@ wordLength(22)
 ```
 
 
-### 100 Longest Words
+#### 100 Longest Words
 Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.
 
 ```r
@@ -351,5 +373,278 @@ hunWords
 ## [201] "underhandednesses"     "undernourishments"    
 ## [203] "venturesomenesses"     "wrongheadednesses"
 ```
+
+
+#### Number of Words Beginning with Each Letter
+
+```r
+## A
+length(words[grepl("^a", words) == TRUE])
+```
+
+```
+## [1] 6557
+```
+
+```r
+## B
+length(words[grepl("^b", words) == TRUE])
+```
+
+```
+## [1] 6848
+```
+
+```r
+## C
+length(words[grepl("^c", words) == TRUE])
+```
+
+```
+## [1] 10385
+```
+
+```r
+## D
+length(words[grepl("^d", words) == TRUE])
+```
+
+```
+## [1] 6436
+```
+
+```r
+## E
+length(words[grepl("^e", words) == TRUE])
+```
+
+```
+## [1] 4364
+```
+
+```r
+## F
+length(words[grepl("^f", words) == TRUE])
+```
+
+```
+## [1] 4937
+```
+
+```r
+## G
+length(words[grepl("^g", words) == TRUE])
+```
+
+```
+## [1] 3950
+```
+
+```r
+## H
+length(words[grepl("^h", words) == TRUE])
+```
+
+```
+## [1] 4080
+```
+
+```r
+## I
+length(words[grepl("^i", words) == TRUE])
+```
+
+```
+## [1] 4013
+```
+
+```r
+## J
+length(words[grepl("^j", words) == TRUE])
+```
+
+```
+## [1] 1106
+```
+
+```r
+## K
+length(words[grepl("^k", words) == TRUE])
+```
+
+```
+## [1] 1312
+```
+
+```r
+## L
+length(words[grepl("^l", words) == TRUE])
+```
+
+```
+## [1] 3710
+```
+
+```r
+## M
+length(words[grepl("^m", words) == TRUE])
+```
+
+```
+## [1] 6270
+```
+
+```r
+## N
+length(words[grepl("^n", words) == TRUE])
+```
+
+```
+## [1] 2208
+```
+
+```r
+## O
+length(words[grepl("^o", words) == TRUE])
+```
+
+```
+## [1] 3978
+```
+
+```r
+## P
+length(words[grepl("^p", words) == TRUE])
+```
+
+```
+## [1] 8693
+```
+
+```r
+## Q
+length(words[grepl("^q", words) == TRUE])
+```
+
+```
+## [1] 568
+```
+
+```r
+## R
+length(words[grepl("^r", words) == TRUE])
+```
+
+```
+## [1] 7141
+```
+
+```r
+## S
+length(words[grepl("^s", words) == TRUE])
+```
+
+```
+## [1] 12591
+```
+
+```r
+## T
+length(words[grepl("^t", words) == TRUE])
+```
+
+```
+## [1] 5951
+```
+
+```r
+## U
+length(words[grepl("^u", words) == TRUE])
+```
+
+```
+## [1] 2934
+```
+
+```r
+## V
+length(words[grepl("^v", words) == TRUE])
+```
+
+```
+## [1] 1932
+```
+
+```r
+## W
+length(words[grepl("^w", words) == TRUE])
+```
+
+```
+## [1] 2927
+```
+
+```r
+## X
+length(words[grepl("^x", words) == TRUE])
+```
+
+```
+## [1] 82
+```
+
+```r
+## Y
+length(words[grepl("^y", words) == TRUE])
+```
+
+```
+## [1] 438
+```
+
+```r
+## Z
+length(words[grepl("^z", words) == TRUE])
+```
+
+```
+## [1] 398
+```
+
+
+#### "Q" Without "U"
+
+```r
+noU <- words[grepl("q[^u]", words) == TRUE]
+noU
+```
+
+```
+##  [1] "buqsha"  "buqshas" "faqir"   "faqirs"  "qaid"    "qaids"   "qindar" 
+##  [8] "qindars" "qintar"  "qintars" "qiviut"  "qiviuts" "qoph"    "qophs"
+```
+
+
+## Crossword Helper
+
+```r
+crossword <- function(x) {
+    a <- grepl(x, words)
+    return(words[a])
+}
+
+crossword("^.t..r..$")
+```
+
+```
+##  [1] "athirst" "attired" "attires" "attorns" "etheric" "starred" "stearic"
+##  [8] "stearin" "steered" "steerer" "stirred" "stirrer" "stirrup" "stoures"
+## [15] "stourie" "uttered" "utterer" "utterly"
+```
+
+
+
+
+
 
 
