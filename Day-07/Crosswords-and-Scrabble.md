@@ -45,7 +45,7 @@ wordLength(1)
 ```
 
 ```
-## [1] 0
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -54,7 +54,7 @@ wordLength(2)
 ```
 
 ```
-## [1] 85
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -63,7 +63,7 @@ wordLength(3)
 ```
 
 ```
-## [1] 908
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -72,7 +72,7 @@ wordLength(4)
 ```
 
 ```
-## [1] 3686
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -81,7 +81,7 @@ wordLength(5)
 ```
 
 ```
-## [1] 8258
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -90,7 +90,7 @@ wordLength(6)
 ```
 
 ```
-## [1] 14374
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -99,7 +99,7 @@ wordLength(7)
 ```
 
 ```
-## [1] 21727
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -108,7 +108,7 @@ wordLength(8)
 ```
 
 ```
-## [1] 26447
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -117,7 +117,7 @@ wordLength(9)
 ```
 
 ```
-## [1] 16658
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -126,7 +126,7 @@ wordLength(10)
 ```
 
 ```
-## [1] 9199
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -135,7 +135,7 @@ wordLength(11)
 ```
 
 ```
-## [1] 5296
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -144,7 +144,7 @@ wordLength(12)
 ```
 
 ```
-## [1] 3166
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -153,7 +153,7 @@ wordLength(13)
 ```
 
 ```
-## [1] 1960
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -162,7 +162,7 @@ wordLength(14)
 ```
 
 ```
-## [1] 1023
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -171,7 +171,7 @@ wordLength(15)
 ```
 
 ```
-## [1] 557
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -180,7 +180,7 @@ wordLength(16)
 ```
 
 ```
-## [1] 261
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -189,7 +189,7 @@ wordLength(17)
 ```
 
 ```
-## [1] 132
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -198,7 +198,7 @@ wordLength(18)
 ```
 
 ```
-## [1] 48
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -207,7 +207,7 @@ wordLength(19)
 ```
 
 ```
-## [1] 16
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -216,7 +216,7 @@ wordLength(20)
 ```
 
 ```
-## [1] 5
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -225,7 +225,7 @@ wordLength(21)
 ```
 
 ```
-## [1] 3
+## Error: could not find function "wordLength"
 ```
 
 ```r
@@ -234,7 +234,7 @@ wordLength(22)
 ```
 
 ```
-## [1] 0
+## Error: could not find function "wordLength"
 ```
 
 
@@ -262,7 +262,7 @@ length(hunWords)
 ```
 
 ```
-## [1] 204
+## Error: object 'hunWords' not found
 ```
 
 ```r
@@ -270,108 +270,7 @@ hunWords
 ```
 
 ```
-##   [1] "counterdemonstrations" "hyperaggressivenesses"
-##   [3] "microminiaturizations" "counterdemonstration" 
-##   [5] "counterdemonstrators"  "hypersensitivenesses" 
-##   [7] "microminiaturization"  "representativenesses" 
-##   [9] "anticonservationist"   "comprehensivenesses"  
-##  [11] "counterdemonstrator"   "counterinflationary"  
-##  [13] "counterpropagations"   "counterretaliations"  
-##  [15] "disinterestednesses"   "electrocardiographs"  
-##  [17] "extraconstitutional"   "hyperaggressiveness"  
-##  [19] "inappropriatenesses"   "inconsideratenesses"  
-##  [21] "interdenominational"   "irreconcilabilities"  
-##  [23] "miscellaneousnesses"   "multidenominational"  
-##  [25] "absentmindednesses"    "adventitiousnesses"   
-##  [27] "antiadministration"    "antidiscrimination"   
-##  [29] "apprehensivenesses"    "biodegradabilities"   
-##  [31] "bloodthirstinesses"    "cantankerousnesses"   
-##  [33] "characteristically"    "chemotherapeutical"   
-##  [35] "counteraccusations"    "counteraggressions"   
-##  [37] "counterpropagation"    "counterretaliation"   
-##  [39] "counterrevolutions"    "countersuggestions"   
-##  [41] "electrocardiograms"    "electrocardiograph"   
-##  [43] "feeblemindednesses"    "heterogenousnesses"   
-##  [45] "hydroelectricities"    "hyperconscientious"   
-##  [47] "hypernationalistic"    "hypersensitiveness"   
-##  [49] "hypersensitivities"    "indispensabilities"   
-##  [51] "industrializations"    "interinstitutional"   
-##  [53] "internationalizing"    "interrelatednesses"   
-##  [55] "irresponsibilities"    "lightheartednesses"   
-##  [57] "misinterpretations"    "misrepresentations"   
-##  [59] "nondiscriminations"    "obstreperousnesses"   
-##  [61] "perpendicularities"    "postfertilizations"   
-##  [63] "rehospitalizations"    "remunerativenesses"   
-##  [65] "representativeness"    "simultaneousnesses"   
-##  [67] "straightforwardest"    "subclassifications"   
-##  [69] "subconsciousnesses"    "superintellectuals"   
-##  [71] "superintelligences"    "unscrupulousnesses"   
-##  [73] "acquaintanceships"     "antiauthoritarian"    
-##  [75] "antieavesdropping"     "antiestablishment"    
-##  [77] "antimaterialistic"     "antimiscegenation"    
-##  [79] "antirevolutionary"     "antitechnological"    
-##  [81] "blameworthinesses"     "carnivorousnesses"    
-##  [83] "characterizations"     "circumnavigations"    
-##  [85] "comprehensiveness"     "consideratenesses"    
-##  [87] "constitutionality"     "coproprietorships"    
-##  [89] "counteraccusation"     "counteraggression"    
-##  [91] "counterchallenges"     "countercomplaints"    
-##  [93] "countercriticisms"     "counterinfluences"    
-##  [95] "counterrevolution"     "counterstrategies"    
-##  [97] "countersuggestion"     "countertendencies"    
-##  [99] "counterterrorisms"     "counterterrorists"    
-## [101] "cyclophosphamides"     "destructibilities"    
-## [103] "disfranchisements"     "disinterestedness"    
-## [105] "disqualifications"     "distinctivenesses"    
-## [107] "electrocardiogram"     "electromagnetally"    
-## [109] "environmentalists"     "extradepartmental"    
-## [111] "extragovernmental"     "foresightednesses"    
-## [113] "halfheartednesses"     "hardheartednesses"    
-## [115] "histopathological"     "homogeneousnesses"    
-## [117] "housewifelinesses"     "hydroelectrically"    
-## [119] "illustriousnesses"     "impecuniousnesses"    
-## [121] "impenetrabilities"     "inaccessibilities"    
-## [123] "inappropriateness"     "inattentivenesses"    
-## [125] "inconsequentially"     "inconsiderateness"    
-## [127] "incorrigibilities"     "indistinguishable"    
-## [129] "industrialization"     "industriousnesses"    
-## [131] "ineffectivenesses"     "ineffectualnesses"    
-## [133] "injudiciousnesses"     "inquisitivenesses"    
-## [135] "instrumentalities"     "intelligibilities"    
-## [137] "intemperatenesses"     "interdepartmental"    
-## [139] "intergovernmental"     "internationalisms"    
-## [141] "internationalized"     "internationalizes"    
-## [143] "interrelationship"     "irreconcilability"    
-## [145] "kaleidoscopically"     "magnanimousnesses"    
-## [147] "maintainabilities"     "maneuverabilities"    
-## [149] "mellifluousnesses"     "meritoriousnesses"    
-## [151] "microminiaturized"     "misappropriations"    
-## [153] "miscellaneousness"     "mischievousnesses"    
-## [155] "misinterpretation"     "mispronunciations"    
-## [157] "misrepresentation"     "mistrustfulnesses"    
-## [159] "misunderstandings"     "multidisciplinary"    
-## [161] "myelosuppressions"     "nearsightednesses"    
-## [163] "nondenominational"     "nondiscrimination"    
-## [165] "nondiscriminatory"     "nonindustrialized"    
-## [167] "nonproliferations"     "nonrepresentative"    
-## [169] "overconscientious"     "overexaggerations"    
-## [171] "paleoclimatologic"     "photoelectrically"    
-## [173] "photosynthesizing"     "picturesquenesses"    
-## [175] "plenipotentiaries"     "postbaccalaureate"    
-## [177] "postfertilization"     "postrevolutionary"    
-## [179] "precipitatenesses"     "prestidigitations"    
-## [181] "pretentiousnesses"     "professionalizing"    
-## [183] "programmabilities"     "promiscuousnesses"    
-## [185] "reclassifications"     "rehospitalization"    
-## [187] "repetitiousnesses"     "reproachfulnesses"    
-## [189] "resourcefulnesses"     "responsiblenesses"    
-## [191] "straightforwarder"     "subclassification"    
-## [193] "superefficiencies"     "superenthusiastic"    
-## [195] "superintellectual"     "superintelligence"    
-## [197] "superintendencies"     "thoughtlessnesses"    
-## [199] "trustworthinesses"     "unconsciousnesses"    
-## [201] "underhandednesses"     "undernourishments"    
-## [203] "venturesomenesses"     "wrongheadednesses"
+## Error: object 'hunWords' not found
 ```
 
 
@@ -380,235 +279,56 @@ hunWords
 ```r
 ## A
 length(words[grepl("^a", words) == TRUE])
-```
-
-```
-## [1] 6557
-```
-
-```r
 ## B
 length(words[grepl("^b", words) == TRUE])
-```
-
-```
-## [1] 6848
-```
-
-```r
 ## C
 length(words[grepl("^c", words) == TRUE])
-```
-
-```
-## [1] 10385
-```
-
-```r
 ## D
 length(words[grepl("^d", words) == TRUE])
-```
-
-```
-## [1] 6436
-```
-
-```r
 ## E
 length(words[grepl("^e", words) == TRUE])
-```
-
-```
-## [1] 4364
-```
-
-```r
 ## F
 length(words[grepl("^f", words) == TRUE])
-```
-
-```
-## [1] 4937
-```
-
-```r
 ## G
 length(words[grepl("^g", words) == TRUE])
-```
-
-```
-## [1] 3950
-```
-
-```r
 ## H
 length(words[grepl("^h", words) == TRUE])
-```
-
-```
-## [1] 4080
-```
-
-```r
 ## I
 length(words[grepl("^i", words) == TRUE])
-```
-
-```
-## [1] 4013
-```
-
-```r
 ## J
 length(words[grepl("^j", words) == TRUE])
-```
-
-```
-## [1] 1106
-```
-
-```r
 ## K
 length(words[grepl("^k", words) == TRUE])
-```
-
-```
-## [1] 1312
-```
-
-```r
 ## L
 length(words[grepl("^l", words) == TRUE])
-```
-
-```
-## [1] 3710
-```
-
-```r
 ## M
 length(words[grepl("^m", words) == TRUE])
-```
-
-```
-## [1] 6270
-```
-
-```r
 ## N
 length(words[grepl("^n", words) == TRUE])
-```
-
-```
-## [1] 2208
-```
-
-```r
 ## O
 length(words[grepl("^o", words) == TRUE])
-```
-
-```
-## [1] 3978
-```
-
-```r
 ## P
 length(words[grepl("^p", words) == TRUE])
-```
-
-```
-## [1] 8693
-```
-
-```r
 ## Q
 length(words[grepl("^q", words) == TRUE])
-```
-
-```
-## [1] 568
-```
-
-```r
 ## R
 length(words[grepl("^r", words) == TRUE])
-```
-
-```
-## [1] 7141
-```
-
-```r
 ## S
 length(words[grepl("^s", words) == TRUE])
-```
-
-```
-## [1] 12591
-```
-
-```r
 ## T
 length(words[grepl("^t", words) == TRUE])
-```
-
-```
-## [1] 5951
-```
-
-```r
 ## U
 length(words[grepl("^u", words) == TRUE])
-```
-
-```
-## [1] 2934
-```
-
-```r
 ## V
 length(words[grepl("^v", words) == TRUE])
-```
-
-```
-## [1] 1932
-```
-
-```r
 ## W
 length(words[grepl("^w", words) == TRUE])
-```
-
-```
-## [1] 2927
-```
-
-```r
 ## X
 length(words[grepl("^x", words) == TRUE])
-```
-
-```
-## [1] 82
-```
-
-```r
 ## Y
 length(words[grepl("^y", words) == TRUE])
-```
-
-```
-## [1] 438
-```
-
-```r
 ## Z
 length(words[grepl("^z", words) == TRUE])
-```
-
-```
-## [1] 398
 ```
 
 
@@ -617,11 +337,6 @@ length(words[grepl("^z", words) == TRUE])
 ```r
 noU <- words[grepl("q[^u]", words) == TRUE]
 noU
-```
-
-```
-##  [1] "buqsha"  "buqshas" "faqir"   "faqirs"  "qaid"    "qaids"   "qindar" 
-##  [8] "qindars" "qintar"  "qintars" "qiviut"  "qiviuts" "qoph"    "qophs"
 ```
 
 
@@ -636,15 +351,74 @@ crossword <- function(x) {
 crossword("^.t..r..$")
 ```
 
+
+## A Better Crossword Helper
+Best one so far...
+
+```r
+
+crosswordPattern <- function(x, y, w, z, v) {
+    list <- 1:v
+    list2 <- gsub(y, x, list)
+    list22 <- gsub(z, w, list2)
+    list3 <- gsub("1", ".", list2)
+    list4 <- gsub("2", ".", list3)
+    list5 <- gsub("3", ".", list4)
+    list6 <- gsub("4", ".", list5)
+    list7 <- gsub("5", ".", list6)
+    list8 <- gsub("6", ".", list7)
+    list9 <- gsub("7", ".", list8)
+    list10 <- gsub("8", ".", list9)
+    list11 <- gsub("9", ".", list10)
+    list12 <- c("^", list11, "$")
+    pattern <- paste(list12, collapse = "")
+    a <- grepl(pattern, words)
+    return(words[a])
+}
+
+crosswordPattern("x", 1, "s", 7, 7)
 ```
-##  [1] "athirst" "attired" "attires" "attorns" "etheric" "starred" "stearic"
-##  [8] "stearin" "steered" "steerer" "stirred" "stirrer" "stirrup" "stoures"
-## [15] "stourie" "uttered" "utterer" "utterly"
+
+```
+##  [1] "xanthic" "xanthin" "xerarch" "xeroses" "xerosis" "xerotic" "xeruses"
+##  [8] "xiphoid" "xylenes" "xylidin" "xyloses" "xysters"
 ```
 
+work in progress...
 
-
-
-
+```r
+crosswordPattern <- function(x, y, v) {
+    list <- c()
+    for (k in 1:v) {
+        list <- c(list, ".")
+    }
+    list2 <- gsub(y, x, list)
+    list3 <- gsub("1", ".", list2)
+    list4 <- gsub("2", ".", list3)
+    list5 <- gsub("3", ".", list4)
+    list6 <- gsub("4", ".", list5)
+    list7 <- gsub("5", ".", list6)
+    list8 <- gsub("6", ".", list7)
+    list9 <- gsub("7", ".", list8)
+    list10 <- gsub("8", ".", list9)
+    list11 <- gsub("9", ".", list10)
+    list12 <- gsub("10", ".", list11)
+    list13 <- gsub("11", ".", list12)
+    list14 <- gsub("12", ".", list13)
+    list15 <- gsub("13", ".", list14)
+    list16 <- gsub("14", ".", list15)
+    list17 <- gsub("15", ".", list16)
+    list18 <- gsub("16", ".", list17)
+    list19 <- gsub("17", ".", list18)
+    list20 <- gsub("18", ".", list19)
+    list21 <- gsub("19", ".", list20)
+    list22 <- gsub("20", ".", list21)
+    list23 <- gsub("21", ".", list22)
+    list24 <- c("^", list23, "$")
+    pattern <- paste(list24, collapse = "")
+    a <- grepl(pattern, words)
+    return(words[a])
+}
+```
 
 

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Crosswords-and-Scrabble</title>
+<title>Nov 26</title>
 
 <style type="text/css">
 body, td {
@@ -178,364 +178,59 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>Crosswords-and-Scrabble</h1>
+<h1>Nov 26</h1>
 
-<pre><code class="r">words &lt;- readLines(url(&quot;http://dtkaplan.github.io/ScientificComputing/Syllabus/Daily/Day-07/word_list_moby_crossword-flat/word_list_moby_crossword.flat.txt&quot;))
+<pre><code class="r">require(mosaic)
 </code></pre>
 
-<h2>Summarizing the List</h2>
-
-<h4>Report of Word Lengths</h4>
-
-<p>(Slow version)</p>
-
-<pre><code class="r">wordLength &lt;- function(x) {
-    list &lt;- c()
-    a &lt;- sapply(words, nchar)
-    for (k in 1:length(words)) {
-        list &lt;- c(list, a[[k]] == x)
-    }
-    return(sum(list))
-}
-wordLength(3)
+<pre><code>## Loading required package: mosaic Loading required package: grid Loading
+## required package: lattice
+## 
+## Attaching package: &#39;mosaic&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+## D, IQR, binom.test, cor, cov, fivenum, median, prop.test, sd, t.test, var
+## 
+## The following object is masked from &#39;package:base&#39;:
+## 
+## max, mean, min, print, prod, range, sample, sum
 </code></pre>
 
-<p>(Fast version)  </p>
-
-<pre><code class="r">wordLength &lt;- function(x) {
-    list &lt;- c()
-    a &lt;- sapply(words, nchar)
-    for (k in 1:length(words)) {
-        if (a[[k]] == x) {
-            list &lt;- c(list, a[[k]])
-        } else {
-        }
-    }
-    return(length(list))
-}
+<pre><code class="r">require(plyr)
 </code></pre>
 
-<pre><code class="r">## 1
-wordLength(1)
+<pre><code>## Loading required package: plyr
+## 
+## Attaching package: &#39;plyr&#39;
+## 
+## The following object is masked from &#39;package:mosaic&#39;:
+## 
+## count
 </code></pre>
 
-<pre><code>## Error: could not find function &quot;wordLength&quot;
+<pre><code class="r">require(reshape2)
 </code></pre>
 
-<pre><code class="r">## 2
-wordLength(2)
+<pre><code>## Loading required package: reshape2
 </code></pre>
 
-<pre><code>## Error: could not find function &quot;wordLength&quot;
+<pre><code class="r">grades &lt;- fetchData(&quot;grades.csv&quot;)
 </code></pre>
 
-<pre><code class="r">## 3
-wordLength(3)
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/grades.csv
 </code></pre>
 
-<pre><code>## Error: could not find function &quot;wordLength&quot;
+<pre><code class="r">both &lt;- join(grades, grade2)
 </code></pre>
 
-<pre><code class="r">## 4
-wordLength(4)
+<pre><code>## Error: object &#39;grade2&#39; not found
 </code></pre>
 
-<pre><code>## Error: could not find function &quot;wordLength&quot;
+<pre><code class="r">head(both)
 </code></pre>
 
-<pre><code class="r">## 5
-wordLength(5)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 6
-wordLength(6)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 7
-wordLength(7)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 8
-wordLength(8)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 9
-wordLength(9)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 10
-wordLength(10)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 11
-wordLength(11)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 12
-wordLength(12)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 13
-wordLength(13)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 14
-wordLength(14)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 15
-wordLength(15)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 16
-wordLength(16)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 17
-wordLength(17)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 18
-wordLength(18)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 19
-wordLength(19)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 20
-wordLength(20)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 21
-wordLength(21)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<pre><code class="r">## 22
-wordLength(22)
-</code></pre>
-
-<pre><code>## Error: could not find function &quot;wordLength&quot;
-</code></pre>
-
-<h4>100 Longest Words</h4>
-
-<p>Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.</p>
-
-<pre><code class="r">wordList &lt;- function(x) {
-    list &lt;- c()
-    a &lt;- sapply(words, nchar)
-    for (k in 1:length(words)) {
-        if (a[[k]] == x) {
-            list &lt;- c(list, words[k])
-        } else {
-        }
-    }
-    return(list)
-}
-hunWords &lt;- c(wordList(21), wordList(20), wordList(19), wordList(18), wordList(17))
-</code></pre>
-
-<pre><code class="r">length(hunWords)
-</code></pre>
-
-<pre><code>## Error: object &#39;hunWords&#39; not found
-</code></pre>
-
-<pre><code class="r">hunWords
-</code></pre>
-
-<pre><code>## Error: object &#39;hunWords&#39; not found
-</code></pre>
-
-<h4>Number of Words Beginning with Each Letter</h4>
-
-<pre><code class="r">## A
-length(words[grepl(&quot;^a&quot;, words) == TRUE])
-## B
-length(words[grepl(&quot;^b&quot;, words) == TRUE])
-## C
-length(words[grepl(&quot;^c&quot;, words) == TRUE])
-## D
-length(words[grepl(&quot;^d&quot;, words) == TRUE])
-## E
-length(words[grepl(&quot;^e&quot;, words) == TRUE])
-## F
-length(words[grepl(&quot;^f&quot;, words) == TRUE])
-## G
-length(words[grepl(&quot;^g&quot;, words) == TRUE])
-## H
-length(words[grepl(&quot;^h&quot;, words) == TRUE])
-## I
-length(words[grepl(&quot;^i&quot;, words) == TRUE])
-## J
-length(words[grepl(&quot;^j&quot;, words) == TRUE])
-## K
-length(words[grepl(&quot;^k&quot;, words) == TRUE])
-## L
-length(words[grepl(&quot;^l&quot;, words) == TRUE])
-## M
-length(words[grepl(&quot;^m&quot;, words) == TRUE])
-## N
-length(words[grepl(&quot;^n&quot;, words) == TRUE])
-## O
-length(words[grepl(&quot;^o&quot;, words) == TRUE])
-## P
-length(words[grepl(&quot;^p&quot;, words) == TRUE])
-## Q
-length(words[grepl(&quot;^q&quot;, words) == TRUE])
-## R
-length(words[grepl(&quot;^r&quot;, words) == TRUE])
-## S
-length(words[grepl(&quot;^s&quot;, words) == TRUE])
-## T
-length(words[grepl(&quot;^t&quot;, words) == TRUE])
-## U
-length(words[grepl(&quot;^u&quot;, words) == TRUE])
-## V
-length(words[grepl(&quot;^v&quot;, words) == TRUE])
-## W
-length(words[grepl(&quot;^w&quot;, words) == TRUE])
-## X
-length(words[grepl(&quot;^x&quot;, words) == TRUE])
-## Y
-length(words[grepl(&quot;^y&quot;, words) == TRUE])
-## Z
-length(words[grepl(&quot;^z&quot;, words) == TRUE])
-</code></pre>
-
-<h4>&ldquo;Q&rdquo; Without &ldquo;U&rdquo;</h4>
-
-<pre><code class="r">noU &lt;- words[grepl(&quot;q[^u]&quot;, words) == TRUE]
-noU
-</code></pre>
-
-<h2>Crossword Helper</h2>
-
-<pre><code class="r">crossword &lt;- function(x) {
-    a &lt;- grepl(x, words)
-    return(words[a])
-}
-
-crossword(&quot;^.t..r..$&quot;)
-</code></pre>
-
-<h2>A Better Crossword Helper</h2>
-
-<p>Best one so far&hellip;</p>
-
-<pre><code class="r">
-crosswordPattern &lt;- function(x, y, w, z, v) {
-    list &lt;- 1:v
-    list2 &lt;- gsub(y, x, list)
-    list22 &lt;- gsub(z, w, list2)
-    list3 &lt;- gsub(&quot;1&quot;, &quot;.&quot;, list2)
-    list4 &lt;- gsub(&quot;2&quot;, &quot;.&quot;, list3)
-    list5 &lt;- gsub(&quot;3&quot;, &quot;.&quot;, list4)
-    list6 &lt;- gsub(&quot;4&quot;, &quot;.&quot;, list5)
-    list7 &lt;- gsub(&quot;5&quot;, &quot;.&quot;, list6)
-    list8 &lt;- gsub(&quot;6&quot;, &quot;.&quot;, list7)
-    list9 &lt;- gsub(&quot;7&quot;, &quot;.&quot;, list8)
-    list10 &lt;- gsub(&quot;8&quot;, &quot;.&quot;, list9)
-    list11 &lt;- gsub(&quot;9&quot;, &quot;.&quot;, list10)
-    list12 &lt;- c(&quot;^&quot;, list11, &quot;$&quot;)
-    pattern &lt;- paste(list12, collapse = &quot;&quot;)
-    a &lt;- grepl(pattern, words)
-    return(words[a])
-}
-
-crosswordPattern(&quot;x&quot;, 1, &quot;s&quot;, 7, 7)
-</code></pre>
-
-<pre><code>##  [1] &quot;xanthic&quot; &quot;xanthin&quot; &quot;xerarch&quot; &quot;xeroses&quot; &quot;xerosis&quot; &quot;xerotic&quot; &quot;xeruses&quot;
-##  [8] &quot;xiphoid&quot; &quot;xylenes&quot; &quot;xylidin&quot; &quot;xyloses&quot; &quot;xysters&quot;
-</code></pre>
-
-<p>work in progress&hellip;</p>
-
-<pre><code class="r">crosswordPattern &lt;- function(x, y, v) {
-    list &lt;- c()
-    for (k in 1:v) {
-        list &lt;- c(list, &quot;.&quot;)
-    }
-    list2 &lt;- gsub(y, x, list)
-    list3 &lt;- gsub(&quot;1&quot;, &quot;.&quot;, list2)
-    list4 &lt;- gsub(&quot;2&quot;, &quot;.&quot;, list3)
-    list5 &lt;- gsub(&quot;3&quot;, &quot;.&quot;, list4)
-    list6 &lt;- gsub(&quot;4&quot;, &quot;.&quot;, list5)
-    list7 &lt;- gsub(&quot;5&quot;, &quot;.&quot;, list6)
-    list8 &lt;- gsub(&quot;6&quot;, &quot;.&quot;, list7)
-    list9 &lt;- gsub(&quot;7&quot;, &quot;.&quot;, list8)
-    list10 &lt;- gsub(&quot;8&quot;, &quot;.&quot;, list9)
-    list11 &lt;- gsub(&quot;9&quot;, &quot;.&quot;, list10)
-    list12 &lt;- gsub(&quot;10&quot;, &quot;.&quot;, list11)
-    list13 &lt;- gsub(&quot;11&quot;, &quot;.&quot;, list12)
-    list14 &lt;- gsub(&quot;12&quot;, &quot;.&quot;, list13)
-    list15 &lt;- gsub(&quot;13&quot;, &quot;.&quot;, list14)
-    list16 &lt;- gsub(&quot;14&quot;, &quot;.&quot;, list15)
-    list17 &lt;- gsub(&quot;15&quot;, &quot;.&quot;, list16)
-    list18 &lt;- gsub(&quot;16&quot;, &quot;.&quot;, list17)
-    list19 &lt;- gsub(&quot;17&quot;, &quot;.&quot;, list18)
-    list20 &lt;- gsub(&quot;18&quot;, &quot;.&quot;, list19)
-    list21 &lt;- gsub(&quot;19&quot;, &quot;.&quot;, list20)
-    list22 &lt;- gsub(&quot;20&quot;, &quot;.&quot;, list21)
-    list23 &lt;- gsub(&quot;21&quot;, &quot;.&quot;, list22)
-    list24 &lt;- c(&quot;^&quot;, list23, &quot;$&quot;)
-    pattern &lt;- paste(list24, collapse = &quot;&quot;)
-    a &lt;- grepl(pattern, words)
-    return(words[a])
-}
+<pre><code>## Error: object &#39;both&#39; not found
 </code></pre>
 
 </body>
