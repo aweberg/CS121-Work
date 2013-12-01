@@ -644,72 +644,26 @@ crossword("^.t..r..$")
 
 
 ## A Better Crossword Helper
-Best one so far...
+
 
 ```r
-
-crosswordPattern <- function(x, y, w, z, v) {
-    list <- 1:v
-    list2 <- gsub(y, x, list)
-    list22 <- gsub(z, w, list2)
-    list3 <- gsub("1", ".", list2)
-    list4 <- gsub("2", ".", list3)
-    list5 <- gsub("3", ".", list4)
-    list6 <- gsub("4", ".", list5)
-    list7 <- gsub("5", ".", list6)
-    list8 <- gsub("6", ".", list7)
-    list9 <- gsub("7", ".", list8)
-    list10 <- gsub("8", ".", list9)
-    list11 <- gsub("9", ".", list10)
-    list12 <- c("^", list11, "$")
-    pattern <- paste(list12, collapse = "")
-    a <- grepl(pattern, words)
-    return(words[a])
-}
-
-crosswordPattern("x", 1, "s", 7, 7)
-```
-
-```
-##  [1] "xanthic" "xanthin" "xerarch" "xeroses" "xerosis" "xerotic" "xeruses"
-##  [8] "xiphoid" "xylenes" "xylidin" "xyloses" "xysters"
-```
-
-work in progress...
-
-```r
-crosswordPattern <- function(x, y, v) {
-    list <- c()
-    for (k in 1:v) {
-        list <- c(list, ".")
+crosswordPattern <- function(v, x) {
+    a <- rep(".", x)
+    for (k in 1:length(v)) {
+        a[v[[k]]] = names(v)[k]
     }
-    list2 <- gsub(y, x, list)
-    list3 <- gsub("1", ".", list2)
-    list4 <- gsub("2", ".", list3)
-    list5 <- gsub("3", ".", list4)
-    list6 <- gsub("4", ".", list5)
-    list7 <- gsub("5", ".", list6)
-    list8 <- gsub("6", ".", list7)
-    list9 <- gsub("7", ".", list8)
-    list10 <- gsub("8", ".", list9)
-    list11 <- gsub("9", ".", list10)
-    list12 <- gsub("10", ".", list11)
-    list13 <- gsub("11", ".", list12)
-    list14 <- gsub("12", ".", list13)
-    list15 <- gsub("13", ".", list14)
-    list16 <- gsub("14", ".", list15)
-    list17 <- gsub("15", ".", list16)
-    list18 <- gsub("16", ".", list17)
-    list19 <- gsub("17", ".", list18)
-    list20 <- gsub("18", ".", list19)
-    list21 <- gsub("19", ".", list20)
-    list22 <- gsub("20", ".", list21)
-    list23 <- gsub("21", ".", list22)
-    list24 <- c("^", list23, "$")
-    pattern <- paste(list24, collapse = "")
-    a <- grepl(pattern, words)
-    return(words[a])
+    b <- c("^", a, "$")
+    c <- paste(b, collapse = "")
+    d <- grepl(c, words)
+    return(words[d])
 }
+
+crosswordPattern(c(h = 1, l = 4, l = 3), 5)
+```
+
+```
+##  [1] "hallo" "halls" "hello" "hells" "hillo" "hills" "hilly" "holla"
+##  [9] "hollo" "holly" "hullo" "hulls"
 ```
 
 

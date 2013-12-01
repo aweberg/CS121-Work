@@ -711,69 +711,22 @@ crossword(&quot;^.t..r..$&quot;)
 
 <h2>A Better Crossword Helper</h2>
 
-<p>Best one so far&hellip;</p>
-
-<pre><code class="r">
-crosswordPattern &lt;- function(x, y, w, z, v) {
-    list &lt;- 1:v
-    list2 &lt;- gsub(y, x, list)
-    list22 &lt;- gsub(z, w, list2)
-    list3 &lt;- gsub(&quot;1&quot;, &quot;.&quot;, list2)
-    list4 &lt;- gsub(&quot;2&quot;, &quot;.&quot;, list3)
-    list5 &lt;- gsub(&quot;3&quot;, &quot;.&quot;, list4)
-    list6 &lt;- gsub(&quot;4&quot;, &quot;.&quot;, list5)
-    list7 &lt;- gsub(&quot;5&quot;, &quot;.&quot;, list6)
-    list8 &lt;- gsub(&quot;6&quot;, &quot;.&quot;, list7)
-    list9 &lt;- gsub(&quot;7&quot;, &quot;.&quot;, list8)
-    list10 &lt;- gsub(&quot;8&quot;, &quot;.&quot;, list9)
-    list11 &lt;- gsub(&quot;9&quot;, &quot;.&quot;, list10)
-    list12 &lt;- c(&quot;^&quot;, list11, &quot;$&quot;)
-    pattern &lt;- paste(list12, collapse = &quot;&quot;)
-    a &lt;- grepl(pattern, words)
-    return(words[a])
-}
-
-crosswordPattern(&quot;x&quot;, 1, &quot;s&quot;, 7, 7)
-</code></pre>
-
-<pre><code>##  [1] &quot;xanthic&quot; &quot;xanthin&quot; &quot;xerarch&quot; &quot;xeroses&quot; &quot;xerosis&quot; &quot;xerotic&quot; &quot;xeruses&quot;
-##  [8] &quot;xiphoid&quot; &quot;xylenes&quot; &quot;xylidin&quot; &quot;xyloses&quot; &quot;xysters&quot;
-</code></pre>
-
-<p>work in progress&hellip;</p>
-
-<pre><code class="r">crosswordPattern &lt;- function(x, y, v) {
-    list &lt;- c()
-    for (k in 1:v) {
-        list &lt;- c(list, &quot;.&quot;)
+<pre><code class="r">crosswordPattern &lt;- function(v, x) {
+    a &lt;- rep(&quot;.&quot;, x)
+    for (k in 1:length(v)) {
+        a[v[[k]]] = names(v)[k]
     }
-    list2 &lt;- gsub(y, x, list)
-    list3 &lt;- gsub(&quot;1&quot;, &quot;.&quot;, list2)
-    list4 &lt;- gsub(&quot;2&quot;, &quot;.&quot;, list3)
-    list5 &lt;- gsub(&quot;3&quot;, &quot;.&quot;, list4)
-    list6 &lt;- gsub(&quot;4&quot;, &quot;.&quot;, list5)
-    list7 &lt;- gsub(&quot;5&quot;, &quot;.&quot;, list6)
-    list8 &lt;- gsub(&quot;6&quot;, &quot;.&quot;, list7)
-    list9 &lt;- gsub(&quot;7&quot;, &quot;.&quot;, list8)
-    list10 &lt;- gsub(&quot;8&quot;, &quot;.&quot;, list9)
-    list11 &lt;- gsub(&quot;9&quot;, &quot;.&quot;, list10)
-    list12 &lt;- gsub(&quot;10&quot;, &quot;.&quot;, list11)
-    list13 &lt;- gsub(&quot;11&quot;, &quot;.&quot;, list12)
-    list14 &lt;- gsub(&quot;12&quot;, &quot;.&quot;, list13)
-    list15 &lt;- gsub(&quot;13&quot;, &quot;.&quot;, list14)
-    list16 &lt;- gsub(&quot;14&quot;, &quot;.&quot;, list15)
-    list17 &lt;- gsub(&quot;15&quot;, &quot;.&quot;, list16)
-    list18 &lt;- gsub(&quot;16&quot;, &quot;.&quot;, list17)
-    list19 &lt;- gsub(&quot;17&quot;, &quot;.&quot;, list18)
-    list20 &lt;- gsub(&quot;18&quot;, &quot;.&quot;, list19)
-    list21 &lt;- gsub(&quot;19&quot;, &quot;.&quot;, list20)
-    list22 &lt;- gsub(&quot;20&quot;, &quot;.&quot;, list21)
-    list23 &lt;- gsub(&quot;21&quot;, &quot;.&quot;, list22)
-    list24 &lt;- c(&quot;^&quot;, list23, &quot;$&quot;)
-    pattern &lt;- paste(list24, collapse = &quot;&quot;)
-    a &lt;- grepl(pattern, words)
-    return(words[a])
+    b &lt;- c(&quot;^&quot;, a, &quot;$&quot;)
+    c &lt;- paste(b, collapse = &quot;&quot;)
+    d &lt;- grepl(c, words)
+    return(words[d])
 }
+
+crosswordPattern(c(h = 1, l = 4, l = 3), 5)
+</code></pre>
+
+<pre><code>##  [1] &quot;hallo&quot; &quot;halls&quot; &quot;hello&quot; &quot;hells&quot; &quot;hillo&quot; &quot;hills&quot; &quot;hilly&quot; &quot;holla&quot;
+##  [9] &quot;hollo&quot; &quot;holly&quot; &quot;hullo&quot; &quot;hulls&quot;
 </code></pre>
 
 </body>
