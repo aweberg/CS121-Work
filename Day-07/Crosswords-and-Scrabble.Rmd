@@ -19,7 +19,7 @@ wordLength <- function(x){
 wordLength(3)
 ```
 (Fast version)  
-```{r eval=FALSE}  
+```{r}  
 wordLength <- function(x){
   list<-c()
   a <- sapply(words,nchar)
@@ -79,7 +79,7 @@ wordLength(22)
 
 #### 100 Longest Words
 Unfortunately, there are not 100 longest words.  There are 204 of length 17 and above, or else 72 of 18 and above.
-```{r eval=FALSE}
+```{r}
 wordList <- function(x){
   list<-c()
   a <- sapply(words,nchar)
@@ -98,7 +98,7 @@ hunWords
 ```
 
 #### Number of Words Beginning with Each Letter
-```{r eval=FALSE}
+```{r}
 ## A
 length(words[grepl("^a",words)==TRUE])
 ## B
@@ -154,13 +154,13 @@ length(words[grepl("^z",words)==TRUE])
 ```
 
 #### "Q" Without "U"
-```{r eval=FALSE}
+```{r}
 noU<-words[grepl("q[^u]",words)==TRUE]
 noU
 ```
 
 ## Crossword Helper
-```{r eval=FALSE}
+```{r}
 crossword <- function(x){
   a <- grepl(x,words)
   return(words[a])
