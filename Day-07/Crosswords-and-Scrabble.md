@@ -666,5 +666,91 @@ crosswordPattern(c(h = 1, l = 4, l = 3), 5)
 ##  [9] "hollo" "holly" "hullo" "hulls"
 ```
 
+#### Put into use:
+![Examle Crossword](https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=3c3fb89127&view=att&th=142b194abf4b0672&attid=0.1&disp=inline&realattid=f_hop82ihu0&safe=1&zw&saduie=AG9B_P95_kyWxuKUpv_AbSlETcxe&sadet=1385958836151&sads=P6lsjlNVOlpbZMihZ2EQrEpnkps&sadssc=1)
+
+1 Across
+
+```r
+crosswordPattern(c(l = 1, v = 3, a = 4), 4)
+```
+
+```
+## [1] "lava" "leva"
+```
+
+49 Across
+
+```r
+crosswordPattern(c(n = 2, a = 3, g = 4), 4)
+```
+
+```
+## [1] "snag"
+```
+
+57 Across
+
+```r
+crosswordPattern(c(e = 1, a = 3, n = 4), 4)
+```
+
+```
+## [1] "elan"
+```
+
+7 Down
+
+```r
+crosswordPattern(c(a = 1, r = 2, c = 3), 4)
+```
+
+```
+## [1] "arch" "arco" "arcs"
+```
+
+9 Down
+
+```r
+crosswordPattern(c(m = 1, a = 2, r = 3, a = 5), 5)
+```
+
+```
+## [1] "maria"
+```
+
+38 Down
+
+```r
+crosswordPattern(c(e = 1, r = 3), 4)
+```
+
+```
+##  [1] "earl" "earn" "ears" "ecru" "eery" "errs" "euro" "eyra" "eyre" "eyry"
+```
+
+51 Down
+
+```r
+crosswordPattern(c(g = 1, l = 2, a = 3, d = 4), 5)
+```
+
+```
+## [1] "glade" "glads" "glady"
+```
+
+58 Down
+
+```r
+crosswordPattern(c(c = 2, e = 4), 4)
+```
+
+```
+## [1] "ache" "acme" "acne" "acre" "eche"
+```
+
+
+
+
 
 
