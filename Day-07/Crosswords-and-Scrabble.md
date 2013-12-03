@@ -750,7 +750,55 @@ crosswordPattern(c(c = 2, e = 4), 4)
 ```
 
 
+## Scrabble
+I added an input x which dictates how many letters the desired word will be.
 
+```r
+scrabble <- function(v, x) {
+    sub1 <- words[grepl(v[1], words) == TRUE]
+    sub2 <- sub1[grepl(v[2], sub1) == TRUE]
+    sub3 <- sub2[grepl(v[3], sub2) == TRUE]
+    sub4 <- sub3[grepl(v[4], sub3) == TRUE]
+    sub5 <- sub4[grepl(v[5], sub4) == TRUE]
+    sub6 <- sub5[grepl(v[6], sub5) == TRUE]
+    sub7 <- sub6[grepl(v[7], sub6) == TRUE]
+    if (length(sub7) > 10) {
+        return(sub7[1:10])
+    } else {
+        a <- c(sub7, sub6, sub5, sub4)
+    }
+    b <- sapply(a, nchar)
+    c <- as.data.frame(b, row.names = names(b))
+    d <- subset(c, b == x)
+    e <- row.names(d)
+    return(e[1:10])
+}
+
+scrabble(c("a", "b", "c", "d", "e", "f", "g"), 7)
+```
+
+```
+##  [1] "abduced" "abduces" "batched" "beached" "belaced" "blacked" "bracted"
+##  [8] "brocade" "cabined" "carbide"
+```
+
+```r
+scrabble(c("a", "b", "c", "d", "e", "f", "g"), 8)
+```
+
+```
+##  [1] "boldface" "feedback" "abdicate" "abducens" "abducent" "abducted"
+##  [7] "abidance" "abscised" "ascribed" "baccated"
+```
+
+```r
+scrabble(c("a", "b", "c", "d", "e", "f", "g"), 9)
+```
+
+```
+##  [1] "backfired" "barefaced" "boldfaced" "boldfaces" "confabbed"
+##  [6] "feedbacks" "abdicated" "abdicates" "abidances" "abreacted"
+```
 
 
 

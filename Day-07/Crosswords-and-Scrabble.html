@@ -797,6 +797,51 @@ crosswordPattern(c(h = 1, l = 4, l = 3), 5)
 <pre><code>## [1] &quot;ache&quot; &quot;acme&quot; &quot;acne&quot; &quot;acre&quot; &quot;eche&quot;
 </code></pre>
 
+<h2>Scrabble</h2>
+
+<p>I added an input x which dictates how many letters the desired word will be.</p>
+
+<pre><code class="r">scrabble &lt;- function(v, x) {
+    sub1 &lt;- words[grepl(v[1], words) == TRUE]
+    sub2 &lt;- sub1[grepl(v[2], sub1) == TRUE]
+    sub3 &lt;- sub2[grepl(v[3], sub2) == TRUE]
+    sub4 &lt;- sub3[grepl(v[4], sub3) == TRUE]
+    sub5 &lt;- sub4[grepl(v[5], sub4) == TRUE]
+    sub6 &lt;- sub5[grepl(v[6], sub5) == TRUE]
+    sub7 &lt;- sub6[grepl(v[7], sub6) == TRUE]
+    if (length(sub7) &gt; 10) {
+        return(sub7[1:10])
+    } else {
+        a &lt;- c(sub7, sub6, sub5, sub4)
+    }
+    b &lt;- sapply(a, nchar)
+    c &lt;- as.data.frame(b, row.names = names(b))
+    d &lt;- subset(c, b == x)
+    e &lt;- row.names(d)
+    return(e[1:10])
+}
+
+scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 7)
+</code></pre>
+
+<pre><code>##  [1] &quot;abduced&quot; &quot;abduces&quot; &quot;batched&quot; &quot;beached&quot; &quot;belaced&quot; &quot;blacked&quot; &quot;bracted&quot;
+##  [8] &quot;brocade&quot; &quot;cabined&quot; &quot;carbide&quot;
+</code></pre>
+
+<pre><code class="r">scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 8)
+</code></pre>
+
+<pre><code>##  [1] &quot;boldface&quot; &quot;feedback&quot; &quot;abdicate&quot; &quot;abducens&quot; &quot;abducent&quot; &quot;abducted&quot;
+##  [7] &quot;abidance&quot; &quot;abscised&quot; &quot;ascribed&quot; &quot;baccated&quot;
+</code></pre>
+
+<pre><code class="r">scrabble(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;), 9)
+</code></pre>
+
+<pre><code>##  [1] &quot;backfired&quot; &quot;barefaced&quot; &quot;boldfaced&quot; &quot;boldfaces&quot; &quot;confabbed&quot;
+##  [6] &quot;feedbacks&quot; &quot;abdicated&quot; &quot;abdicates&quot; &quot;abidances&quot; &quot;abreacted&quot;
+</code></pre>
+
 </body>
 
 </html>
