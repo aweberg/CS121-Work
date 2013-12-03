@@ -186,7 +186,7 @@ crosswordPattern<-function(v,x){
 crosswordPattern(c(h=1,l=4,l=3),5)
 ```
 #### Put into use:
-![Examle Crossword](https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=3c3fb89127&view=att&th=142b194abf4b0672&attid=0.1&disp=inline&realattid=f_hop82ihu0&safe=1&zw&saduie=AG9B_P95_kyWxuKUpv_AbSlETcxe&sadet=1385958836151&sads=P6lsjlNVOlpbZMihZ2EQrEpnkps&sadssc=1)
+![Examle Crossword](https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=3c3fb89127&view=att&th=142b194abf4b0672&attid=0.1&disp=inline&realattid=f_hop82ihu0&safe=1&zw&saduie=AG9B_P95_kyWxuKUpv_AbSlETcxe&sadet=1386037999676&sads=RnB9xCOHrMW-1W9S9Ew4NgejqQA)
 
 1 Across
 ```{r}
