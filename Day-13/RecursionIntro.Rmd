@@ -154,5 +154,83 @@ addSimple(c(1,2,3))
 addSimple(c(5,7,9))
 ```
 
+## Natural Settings for Recursion
+```{r}
+simpleRiemann <- function(f, a = 0, b = 1, n = 3) {
+    rectangleWidth = (b - a)/n
+    midpoints <- seq(a + rectangleWidth/2, b - rectangleWidth/2, length = n)
+    rectangleAreas <- sapply(midpoints, f) * rectangleWidth
+    return(sum(rectangleAreas))
+}
+```
 
+```{r}
+integrateRiemann <- function(f, a = 0, b = 1) {
+    nbins <- 5
+    biggerBins <- simpleRiemann(f, a = a, b = b, n = nbins)
+    for (k in 1:5) {
+        nbins <- nbins * 10  # much smaller bins
+        smallerBins <- simpleRiemann(f, a = a, b = b, n = nbins)
+        if (abs(smallerBins - biggerBins) < 1e-05) 
+            break
+        biggerBins <- smallerBins
+    }
+    return(smallerBins)
+}
+```
+Demo Cases:
+```{r}
+integrateRiemann(function(x) {
+    3 * x
+}, a = 0, b = 10)
+```
+
+```{r}
+integrateRiemann(function(x) {
+    3 * x^2
+}, a = 0, b = 10)
+```
+
+
+#### Why is there a for() loop only going to 5?
+Because each time we go through the loop the number of bins in multiplied by 10, by using k in 1:5, we are effectively increasing the number of bins by 10^5
+
+#### What's the purpose of biggerBins <- smallerBins?
+Setting biggerBins <- smallerBins makes the biggerBins smaller and smaller each time it goes through the loop.  This is what makes the recursion possible.
+
+#### In the worst case, how many bins will there be?
+In the worst case, there will be 5*10^5 bins.
+
+## Your Tasks
+#### Modify integrateRecursive()
+
+```{r}
+integrateRecursive <- function(f, a = 0, b = 1) {
+    bigBins <- simpleRiemann(f, a = a, b = b, n = 5)
+    smallBins <- simpleRiemann(f, a = a, b = b, n = 10)
+    if (abs(bigBins - smallBins) < 1e-05) 
+        return(smallBins) else {
+        mid <- (a + b)/2
+        total <- integrateRecursive(f, a = a, b = mid) + integrateRecursive(f, 
+            a = mid, b = b)
+        if(n==10000){break}
+        return(total)
+    }
+}
+```
+
+#### Demo your Program
+```{r}
+integrateRecursive(function(x) {
+    3 * x
+}, a = 0, b = 10)
+```
+$\int\limits_{0}^{10} 3*x dx = 150$
+
+```{r}
+integrateRiemann(function(x) {
+     x^2
+}, a = 0, b = 10)
+```
+$\int\limits_{0}^{10} 3*x^2 dx = \frac{1000}{3}$
 

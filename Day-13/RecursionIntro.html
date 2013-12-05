@@ -173,6 +173,10 @@ hljs.initHighlightingOnLoad();
 </script>
 
 
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 
 </head>
@@ -431,6 +435,102 @@ addSimple(c(1, 2, 3))
 
 <pre><code>## [1] 21
 </code></pre>
+
+<h2>Natural Settings for Recursion</h2>
+
+<pre><code class="r">simpleRiemann &lt;- function(f, a = 0, b = 1, n = 3) {
+    rectangleWidth = (b - a)/n
+    midpoints &lt;- seq(a + rectangleWidth/2, b - rectangleWidth/2, length = n)
+    rectangleAreas &lt;- sapply(midpoints, f) * rectangleWidth
+    return(sum(rectangleAreas))
+}
+</code></pre>
+
+<pre><code class="r">integrateRiemann &lt;- function(f, a = 0, b = 1) {
+    nbins &lt;- 5
+    biggerBins &lt;- simpleRiemann(f, a = a, b = b, n = nbins)
+    for (k in 1:5) {
+        nbins &lt;- nbins * 10  # much smaller bins
+        smallerBins &lt;- simpleRiemann(f, a = a, b = b, n = nbins)
+        if (abs(smallerBins - biggerBins) &lt; 1e-05) 
+            break
+        biggerBins &lt;- smallerBins
+    }
+    return(smallerBins)
+}
+</code></pre>
+
+<p>Demo Cases:</p>
+
+<pre><code class="r">integrateRiemann(function(x) {
+    3 * x
+}, a = 0, b = 10)
+</code></pre>
+
+<pre><code>## [1] 150
+</code></pre>
+
+<pre><code class="r">integrateRiemann(function(x) {
+    3 * x^2
+}, a = 0, b = 10)
+</code></pre>
+
+<pre><code>## [1] 1000
+</code></pre>
+
+<h4>Why is there a for() loop only going to 5?</h4>
+
+<p>Because each time we go through the loop the number of bins in multiplied by 10, by using k in 1:5, we are effectively increasing the number of bins by 10<sup>5</sup></p>
+
+<h4>What&#39;s the purpose of biggerBins &lt;- smallerBins?</h4>
+
+<p>Setting biggerBins &lt;- smallerBins makes the biggerBins smaller and smaller each time it goes through the loop.  This is what makes the recursion possible.</p>
+
+<h4>In the worst case, how many bins will there be?</h4>
+
+<p>In the worst case, there will be 5*10<sup>5</sup> bins.</p>
+
+<h2>Your Tasks</h2>
+
+<h4>Modify integrateRecursive()</h4>
+
+<pre><code class="r">integrateRecursive &lt;- function(f, a = 0, b = 1) {
+    bigBins &lt;- simpleRiemann(f, a = a, b = b, n = 5)
+    smallBins &lt;- simpleRiemann(f, a = a, b = b, n = 10)
+    if (abs(bigBins - smallBins) &lt; 1e-05) 
+        return(smallBins) else {
+        mid &lt;- (a + b)/2
+        total &lt;- integrateRecursive(f, a = a, b = mid) + integrateRecursive(f, 
+            a = mid, b = b)
+        if (n == 10000) {
+            break
+        }
+        return(total)
+    }
+}
+</code></pre>
+
+<h4>Demo your Program</h4>
+
+<pre><code class="r">integrateRecursive(function(x) {
+    3 * x
+}, a = 0, b = 10)
+</code></pre>
+
+<pre><code>## [1] 150
+</code></pre>
+
+<p>\( \int\limits_{0}^{10} 3*x dx = 150 \)</p>
+
+<pre><code class="r">integrateRiemann(function(x) {
+    x^2
+}, a = 0, b = 10)
+</code></pre>
+
+<pre><code>## [1] 333.3
+</code></pre>
+
+<p>\( \int\limits_{0}^{10} 3*x^2 dx = \frac{1000}{3} \)</p>
 
 </body>
 
