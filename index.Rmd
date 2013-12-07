@@ -17,4 +17,6 @@
 
 [Recursion](http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html)
 
+[Chua's Circuit](http://aweberg.github.io/CS121-Work/CHAOS.html)
+
 
