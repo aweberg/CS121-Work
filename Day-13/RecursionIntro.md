@@ -31,6 +31,7 @@ fibLoop(20)
 ## [1] 6765
 ```
 
+
 #### Loop where the state is maintained by a vector of n+1 slots, with the first two slots initialized to 0 and 1 respectively:
 
 ```r
@@ -57,6 +58,7 @@ fibLoop2(20)
 ```
 ## [1] 6765
 ```
+
 
 #### Returns all fibonacci numbers n and below:
 
@@ -117,6 +119,7 @@ fibRecurse(20)
 ## [1] 6765
 ```
 
+
 #### More concise way:
 
 ```r
@@ -173,6 +176,7 @@ addNSeq(5)
 ## [1] 15
 ```
 
+
 #### Looping Version:
 
 ```r
@@ -199,6 +203,7 @@ addNSeqLoop(5)
 ## [1] 15
 ```
 
+
 #### Simple vectorized operational version:
 
 ```r
@@ -221,6 +226,7 @@ addNSeqSimple(5)
 ```
 ## [1] 15
 ```
+
 
 #### Write a recursive function to add up all the numbers in a vector:
 
@@ -248,6 +254,7 @@ addRecursively(c(5, 7, 9))
 ## [1] 21
 ```
 
+
 #### Loop Version:
 
 ```r
@@ -273,6 +280,7 @@ addWithLoop(c(5, 7, 9))
 ```
 ## [1] 21
 ```
+
 
 #### Simple vectorized operational version:
 
@@ -363,7 +371,6 @@ In the worst case, there will be 5*10^5 bins.
 ## Your Tasks
 #### Modify integrateRecursive()
 
-
 ```r
 integrateRecursive <- function(f, a = 0, b = 1) {
     bigBins <- simpleRiemann(f, a = a, b = b, n = 5)
@@ -408,4 +415,72 @@ integrateRiemann(function(x) {
 ```
 
 $\int\limits_{0}^{10} 3*x^2 dx = \frac{1000}{3}$
+
+Integral that hits "worst case":
+
+```r
+integrateRiemann(function(x) {
+    x^309
+}, a = 0, b = 10)
+```
+
+```
+## Error: missing value where TRUE/FALSE needed
+```
+
+$\int\limits_{0}^{10} x^{309} dx = 3.23*10^{307}$
+
+#### A Better Simple Integrator
+
+```r
+gaussQuadrature <- function(f, a = 0, b = 1) {
+    # Just 4 function evaluations!
+    
+    # 'Magic' values on z in [0,1]
+    z <- c(c(-1, 1) * sqrt((3 - 2 * sqrt(6/5))/7), c(-1, 1) * sqrt((3 + 2 * 
+        sqrt(6/5))/7))
+    # weights (analogous to bin width)
+    w <- c(rep((18 + sqrt(30))/36, 2), rep((18 - sqrt(30))/36, 2))
+    # Translate to interval x in [a,b]
+    x <- ((b - a)/2) * z + (a + b)/2
+    # evaluate the function at x, multiply by weights, and sum
+    return(((b - a)/2) * sum(w * sapply(x, f)))
+}
+```
+
+Test Cases:
+
+```r
+gaussQuadrature(function(x) 3 + 0 * x, 0, 10)
+```
+
+```
+## [1] 30
+```
+
+```r
+gaussQuadrature(function(x) 3 * x, 0, 10)
+```
+
+```
+## [1] 150
+```
+
+```r
+gaussQuadrature(function(x) 3 * x^2, 0, 10)
+```
+
+```
+## [1] 1000
+```
+
+
+
+
+
+
+
+
+
+
 

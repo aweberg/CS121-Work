@@ -1,0 +1,32 @@
+LAST DAY
+==========
+
+```{r}
+require(mosaic)
+require(plyr)
+votes <- fetchData("COMP121/MinneapolisMayor-2013.csv")
+
+names(votes) <- c("Precinct","First","Second","Third","Count")
+
+small <- head(votes)
+```
+
+```{r}
+
+countVotes <- function(v){
+  names <- as.character(unique(v[[2]]))
+  list <- c()
+  for(k in 1:length(names)){
+    total <- v[[2]]==names[k]
+    list <- c(list,sum(total))
+  }
+  finish <- data.frame(names=names, total=list)
+  inds <- order(finish[2],decreasing = TRUE)
+  finish <- finish[inds,]
+  return(finish)
+}
+
+countVotes(votes)
+
+```
+

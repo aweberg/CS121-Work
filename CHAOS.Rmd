@@ -1,0 +1,48 @@
+# CHUA'S CIRCUIT
+
+## The Equations
+
+#### dx/dt = c1*(y-x-f(x)) 
+#### dy/dt = c2*(x-y+z)
+#### dz/dt = -c3*y
+#### f(x) = m1*x+(m0-m1)/2*(|x+1|-|x-1|)  
+   
+## Implementation
+
+```{r include=TRUE}
+require(mosaic)
+```
+
+```{r tidy=FALSE}
+c1 = 15.6
+c2 = 1
+c3 = 28
+m1 = -1.143
+m0 = -0.714
+
+f<- function(x) {m1*x+(m0-m1)/2*(abs(x+1)-abs(x-1))}
+soln <- integrateODE( dx ~ c1*(y-x-f(x)), dy ~ c2*(x-y+z),dz ~ -c3*y, x=1,y=0,z=0,tdur=150)
+
+
+plotFun( soln$x(t)~t, t.lim=c(0,150),main="X(t) vs. t",xlab="t",ylab="x(t)")
+plotFun( soln$y(t)~t, t.lim=c(0,150),main="Y(t) vs. t",xlab="t",ylab="y(t)")
+plotFun( soln$z(t)~t, t.lim=c(0,150),main="Z(t) vs. t",xlab="t",ylab="z(t)")
+
+t <- seq(0,150,length=100000)
+x <- soln$x(t)
+y <- soln$y(t)
+z <- soln$z(t)
+
+
+plot(x,z,main="X vs. Z",xlab="Z",ylab="X",type="l")
+plot(x,y,main="X vs. Y",xlab="Y",ylab="X",type="l")
+plot(y,z,main="Y vs. Z",xlab="Z",ylab="Y",type="l")
+
+library(scatterplot3d)
+scatterplot3d(x, y, z, highlight.3d = TRUE, col.axis = "blue",col.grid = "lightblue", pch = 20,type="l",angle = 100)
+
+
+
+manipulate(scatterplot3d(x, y, z, col = "red",highlight.3d = TRUE, col.axis = "blue",col.grid = "lightblue", pch = 20,type="l",angle = a),a=slider(0,360,initial=100,label="ANGLE",step=10))
+
+```
