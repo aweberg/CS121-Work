@@ -96,7 +96,7 @@ scatterplot3d(x, y, z, highlight.3d = TRUE, col.axis = "blue",col.grid = "lightb
 
 
 
-manipulate(scatterplot3d(x, y, z, col = "red",highlight.3d = TRUE, col.axis = "blue",col.grid = "lightblue", pch = 20,type="l",angle = a),a=slider(0,360,initial=100,label="ANGLE",step=10))
+manipulate(scatterplot3d(x, y, z,highlight.3d = TRUE, col.axis = "blue",col.grid = "lightblue", pch = 20,type="l",angle = a),a=slider(0,360,initial=100,label="ANGLE",step=10))
 ```
 
 ```

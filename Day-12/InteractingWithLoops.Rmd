@@ -42,35 +42,17 @@ responseTime <- function(N){
 ```
 
 ```{r}
+load("/home/aweberg/NEW-CS121/latencyData.RData")
+latencyData
+plot(latencyData[[1]],latencyData[[2]],xlab="Time Interval",ylab="Response Time",main="Response Time vs. Time Interval")
+```
+As can be seen, there seems to be some correlation showing that the larger the time interval, the higher the response time.
+## Elaboration
+```{r eval=FALSE}
+alphabet<-c("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+numbers<-c(1:5)
 
-latencyData<-load("latencyData.RData")
-plot(latencyData[[1]],latencyData[[2]],xlab="Time Interval",ylab="Response Time")
 
 ```
 
-## Elaboration
-```{r eval=FALSE}
-testLatency <- function(N) {
-  readline("Press Enter when you are ready:")
-  result <- rep(0, N)
-  for( k in 1:N) {
-    Sys.sleep(runif(1,min=1,max=5))
-    before <- Sys.time()
-    readline("Press Enter:")
-    after <- Sys.time()
-  delay <- as.numeric(after-before)
-    cat(rep("\n",20))
-    result[k] <- delay
- 
-    }
-  return(result)
-}
-
-(I still need to add list of words)
-
-SPF <- testLatency(20)
-  while(readline != #one word){
-          oneword <- a random choice of another word
-          print out, "Sorry, try again"
-  }
 
