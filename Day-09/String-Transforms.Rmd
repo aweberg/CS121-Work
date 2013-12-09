@@ -1,8 +1,7 @@
-October1 2013
+String Transformations
 ========
 
 ## Reverser
-
 ```{r}
 reverser<-function(x){return(rev(strsplit(x,split=character(0))[[1]][1:nchar(x)]))}
 
@@ -34,7 +33,11 @@ scrambleword("hello")
 
 ## VowelBleeper
 ```{r}
-vowelbleep<-function(x){return(gsub("[aeiou]","*",(strsplit(x,split="")[[1]][1:nchar(x)])))}
+vowelbleep<-function(x){
+  a<-gsub("[aeiou]","*",(strsplit(x,split="")[[1]][1:nchar(x)]))
+  b<-paste(a,collapse="")
+  return(b)
+  }
 ```
 Test Statements:
 ```{r}
@@ -58,5 +61,5 @@ L33t<-function(x){
   }
 
 L33t("abcdefghijklmnopqrstuvwxyz")
+L33t(c("alex is the best"))
 ```
-

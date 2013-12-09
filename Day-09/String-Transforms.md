@@ -1,8 +1,7 @@
-October1 2013
+String Transformations
 ========
 
 ## Reverser
-
 
 ```r
 reverser <- function(x) {
@@ -45,7 +44,7 @@ scrambleword("hello")
 ```
 
 ```
-## [1] "oelhl"
+## [1] "hleol"
 ```
 
 
@@ -53,7 +52,9 @@ scrambleword("hello")
 
 ```r
 vowelbleep <- function(x) {
-    return(gsub("[aeiou]", "*", (strsplit(x, split = "")[[1]][1:nchar(x)])))
+    a <- gsub("[aeiou]", "*", (strsplit(x, split = "")[[1]][1:nchar(x)]))
+    b <- paste(a, collapse = "")
+    return(b)
 }
 ```
 
@@ -64,7 +65,7 @@ vowelbleep("hello")
 ```
 
 ```
-## [1] "h" "*" "l" "l" "*"
+## [1] "h*ll*"
 ```
 
 
@@ -92,4 +93,11 @@ L33t("abcdefghijklmnopqrstuvwxyz")
 ## [1] "a8cd3f9hijk1mn0pqr57uvw4y2"
 ```
 
+```r
+L33t(c("alex is the best"))
+```
+
+```
+## [1] "a134 i5 7h3 8357"
+```
 

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>October1 2013</title>
+<title>String Transformations</title>
 
 <style type="text/css">
 body, td {
@@ -178,7 +178,7 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>October1 2013</h1>
+<h1>String Transformations</h1>
 
 <h2>Reverser</h2>
 
@@ -215,13 +215,15 @@ reverser &lt;- function(x) {
 <pre><code class="r">scrambleword(&quot;hello&quot;)
 </code></pre>
 
-<pre><code>## [1] &quot;oelhl&quot;
+<pre><code>## [1] &quot;hleol&quot;
 </code></pre>
 
 <h2>VowelBleeper</h2>
 
 <pre><code class="r">vowelbleep &lt;- function(x) {
-    return(gsub(&quot;[aeiou]&quot;, &quot;*&quot;, (strsplit(x, split = &quot;&quot;)[[1]][1:nchar(x)])))
+    a &lt;- gsub(&quot;[aeiou]&quot;, &quot;*&quot;, (strsplit(x, split = &quot;&quot;)[[1]][1:nchar(x)]))
+    b &lt;- paste(a, collapse = &quot;&quot;)
+    return(b)
 }
 </code></pre>
 
@@ -230,7 +232,7 @@ reverser &lt;- function(x) {
 <pre><code class="r">vowelbleep(&quot;hello&quot;)
 </code></pre>
 
-<pre><code>## [1] &quot;h&quot; &quot;*&quot; &quot;l&quot; &quot;l&quot; &quot;*&quot;
+<pre><code>## [1] &quot;h*ll*&quot;
 </code></pre>
 
 <h2>L33t</h2>
@@ -252,6 +254,12 @@ L33t(&quot;abcdefghijklmnopqrstuvwxyz&quot;)
 </code></pre>
 
 <pre><code>## [1] &quot;a8cd3f9hijk1mn0pqr57uvw4y2&quot;
+</code></pre>
+
+<pre><code class="r">L33t(c(&quot;alex is the best&quot;))
+</code></pre>
+
+<pre><code>## [1] &quot;a134 i5 7h3 8357&quot;
 </code></pre>
 
 </body>
