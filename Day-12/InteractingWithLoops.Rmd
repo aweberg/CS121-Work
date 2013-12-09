@@ -1,0 +1,76 @@
+Side Effects and Inputs
+=======================
+
+## Looping a Launch
+```{r}
+blastoff <- function(x){
+  while(x != 0){
+    Sys.sleep(1)
+    cat(x,"\n")
+    x <- x-1
+    }
+  Sys.sleep(1)
+  cat("BANANAS!!!")
+  }
+
+blastoff(5)
+```
+
+## Testing Human Response Times
+```{r eval=FALSE}
+responseTime <- function(N){
+    readline("PRESS RETURN WHEN READY:")
+    result <- rep(NA,N)
+    interval<-c(.1)
+    for(k in 1:N){
+        before <- Sys.time()
+        readline("PRESS RETURN:")
+        after<-Sys.time()
+        delay <- as.numeric(after-before)
+        cat(rep("\n",20))
+        result[k]<-delay
+        a<-Sys.time()
+        Sys.sleep(rexp(20,rate=1/2))
+        b<-Sys.time()
+        c<-as.numeric(b-a)
+        interval<-c(interval,c)
+    }
+    latency <- result[1:N]
+    finish <- data.frame(interval=interval[1:N],latency=latency)
+    return(finish)
+}
+```
+
+```{r}
+
+latencyData<-load("latencyData.RData")
+plot(latencyData[[1]],latencyData[[2]],xlab="Time Interval",ylab="Response Time")
+
+```
+
+## Elaboration
+```{r eval=FALSE}
+testLatency <- function(N) {
+  readline("Press Enter when you are ready:")
+  result <- rep(0, N)
+  for( k in 1:N) {
+    Sys.sleep(runif(1,min=1,max=5))
+    before <- Sys.time()
+    readline("Press Enter:")
+    after <- Sys.time()
+  delay <- as.numeric(after-before)
+    cat(rep("\n",20))
+    result[k] <- delay
+ 
+    }
+  return(result)
+}
+
+(I still need to add list of words)
+
+SPF <- testLatency(20)
+  while(readline != #one word){
+          oneword <- a random choice of another word
+          print out, "Sorry, try again"
+  }
+
