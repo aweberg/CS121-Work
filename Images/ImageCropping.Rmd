@@ -83,6 +83,10 @@ framing(puppy[,,3],width=20)
 ```
 
 ```{r}
-
 kane<-readJPEG(getURLContent("http://www.thes4p.com/wp-content/uploads/2013/06/patrick-kane.jpg"))
 framing(kane[,,3],width=40)
+```
+
+
+
+

@@ -172,19 +172,40 @@ plot(latencyData[[1]], latencyData[[2]], xlab = "Time Interval", ylab = "Respons
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 As can be seen, there seems to be some correlation showing that the larger the time interval, the higher the response time.
+
+
 ## Elaboration
 
 ```r
-alphabet <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
-    "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
-numbers <- c(1:5)
-a <- sample(numbers, 1)
-sample(alphabet, a)
+testLatency2 <- function(N) {
+    result <- vector(length = N)
+    wordLength <- round(runif(N, 1, 20))
+    for (k in 1:N) {
+        x <- sample(letters, wordLength[k])
+        word <- paste(x, collapse = "")  # Puts words together by amount of space between ''
+        phrase <- paste("Type the word, '", word, "' ", sep = " ")
+        command <- readline(phrase)
+        
+        Sys.sleep(runif(1, min = 1, max = 5))
+        before <- Sys.time()
+        
+        while (command != word) {
+            command <- readline("Look Again")
+        }  # Waiting for it to look for word
+        
+        
+        readline("Press Enter:")
+        after <- Sys.time()
+        delay <- as.numeric(after - before)
+        cat(rep("\n", 20))
+        result[k] <- delay
+        
+    }
+    
+    
+    table <- data.frame(`Word Length` = WordLength, Latency = result)
+    return(table)
+}
 ```
-
-```
-## [1] "i" "v"
-```
-
 
 

@@ -16,8 +16,8 @@ install_url("http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1
 ```
 ## Downloading COMP121_0.1.tar.gz from
 ## http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1.tar.gz
-## Installing package from /tmp/Rtmpa7jY45/COMP121_0.1.tar.gz Installing
-## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/Rtmpa7jY45/COMP121'
+## Installing package from /tmp/Rtmp8EMyeJ/COMP121_0.1.tar.gz Installing
+## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/Rtmp8EMyeJ/COMP121'
 ## \ --library='/home/aweberg/R/x86_64-pc-linux-gnu-library/3.0' \
 ## --with-keep.source --install-tests
 ```
@@ -150,9 +150,13 @@ framing(puppy[, , 3], width = 20)
 
 
 ```r
-
 kane <- readJPEG(getURLContent("http://www.thes4p.com/wp-content/uploads/2013/06/patrick-kane.jpg"))
 framing(kane[, , 3], width = 40)
 ```
 
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+
+
+
+
+
