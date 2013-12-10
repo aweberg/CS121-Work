@@ -178,7 +178,12 @@ As can be seen, there seems to be some correlation showing that the larger the t
 alphabet <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 numbers <- c(1:5)
+a <- sample(numbers, 1)
+sample(alphabet, a)
+```
 
+```
+## [1] "i" "v"
 ```
 
 

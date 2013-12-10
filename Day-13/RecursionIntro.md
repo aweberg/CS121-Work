@@ -475,9 +475,73 @@ gaussQuadrature(function(x) 3 * x^2, 0, 10)
 ```
 
 
+#### What power of x does gaussQuadrature fail for? ---> 318
+
+```r
+gaussQuadrature(function(x) x^317, 0, 10)
+```
+
+```
+## [1] 2.155e+307
+```
+
+```r
+gaussQuadrature(function(x) x^318, 0, 10)
+```
+
+```
+## [1] Inf
+```
 
 
+#### Test out gaussQuadrature() on sine and cosine functions, with a=0 and b successively larger, that is, b=0.1, b=1.0, and so on. How wide can you make the interval, before the result of gaussQuadrature() is not accurate? ---> $2*pi+0.1$
 
+```r
+gaussQuadrature(function(x) sin(x), 0, 2 * pi + 0.1)
+```
+
+```
+## [1] 0.005379
+```
+
+$\int\limits_{0}^{2*pi+0.1}\sin{x}dx = 0.004995$
+
+#### Re-implement integrateRecursive() using gaussQuadrature() as the base integrator. You'll have to be creative, since you can't change the number of bins as in the test-for-simple part of integrateRecursive(). Show that your function works on trigonometric functions with b big.
+
+```r
+integrateRecursive2 <- function(f, a = 0, b = 1) {
+    bigBins <- gaussQuadrature(f, a = a, b = b, n = 5)
+    smallBins <- gaussQuadrature(f, a = a, b = b, n = 10)
+    if (abs(bigBins - smallBins) < 1e-05) 
+        return(smallBins) else {
+        mid <- (a + b)/2
+        total <- integrateRecursive2(f, a = a, b = mid) + integrateRecursive2(f, 
+            a = mid, b = b)
+        if (n == 10000) {
+            break
+        }
+        return(total)
+    }
+}
+```
+
+
+### Plotting a function
+
+```r
+
+plotF <- function(f, a = 0, b = 1) {
+    diff <- (b - a)
+    x <- seq(a, b, length = (diff * 100))
+    y <- f(x)
+    plot(x, y, xlab = "x", ylab = "f(x)", main = "plotF", type = "l", pch = 20, 
+        cex = 0.2, col = "red")
+}
+
+plotF(function(x) x^3, -1, 1)
+```
+
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 

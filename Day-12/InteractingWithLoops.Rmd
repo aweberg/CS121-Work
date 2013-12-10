@@ -48,10 +48,11 @@ plot(latencyData[[1]],latencyData[[2]],xlab="Time Interval",ylab="Response Time"
 ```
 As can be seen, there seems to be some correlation showing that the larger the time interval, the higher the response time.
 ## Elaboration
-```{r eval=FALSE}
+```{r}
 alphabet<-c("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
 numbers<-c(1:5)
-
+a<-sample(numbers,1)
+sample(alphabet,a)
 
 ```
 
