@@ -15,7 +15,19 @@
 
 [String Transformations](http://aweberg.github.io/CS121-Work/Day-09/String-Transforms.html)
 
+[Ciphers](http://aweberg.github.io/CS121-Work/Day-11/SubstitutionCypher.html)
+
+[Exercises With Loops](http://aweberg.github.io/CS121-Work/Day-11/BaseConversion.html)
+
+[Side Effect and Loops](http://aweberg.github.io/CS121-Work/Day-12/InteractingWithLoops.html)
+
 [Recursion](http://aweberg.github.io/CS121-Work/Day-13/RecursionIntro.html)
+
+[Huck Finn](http://aweberg.github.io/CS121-Work/HuckFinn/ToolTips.html)
+
+[Computing Numerical Derivatives](http://aweberg.github.io/CS121-Work/Mathematics/FiniteDifference.html)
+
+[Cropping and Framing](http://aweberg.github.io/CS121-Work/Images/ImageCropping.html)
 
 [Chua's Circuit](http://aweberg.github.io/CS121-Work/CHAOS.html)
 
