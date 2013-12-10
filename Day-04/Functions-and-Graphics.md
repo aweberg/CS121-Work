@@ -232,7 +232,7 @@ drawCircle(50, 60, 10, col = "NA", border = "black", lwd = 6)
 drawCircle(28, 60, 10, col = "NA", border = "blue", lwd = 6)
 drawCircle(72, 60, 10, col = "NA", border = "red", lwd = 6)
 drawCircle(39, 47, 10, col = "NA", border = "yellow", lwd = 6)
-drawCircle(61, 47, 10, col = "NA", border = "green", lwd = 6)
+drawCircle(61, 47, 10, col = "NA", border = "#599C36", lwd = 6)
 ```
 
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
