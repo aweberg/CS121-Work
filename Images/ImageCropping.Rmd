@@ -44,7 +44,7 @@ rasterImage(all4, 1, 1, 40+216, 40+198)
 ```
 
 ```{r}
-canvas(x=c(1,220),y=c(1,220),asp=1)
+canvas(x=c(1,240),y=c(1,240),asp=1)
 brighten <- function(photo, base){
   a<-base + (1-base)*photo
   b<-dim(photo)
@@ -54,24 +54,35 @@ brighten(puppy,.75)
 ```
 
 ```{r}
-canvas(x=c(1,240),y=c(1,220),asp=1)
-frame<-function(photo,width,base){
-  dim <- dim(photo)
-  colframe <- cbind( brighten(photo[1:dim[1],rev(1:width),],base),photo, brighten(photo[1:dim[1],dim[2]:(1+dim[2]-width),],base))
-  return(rasterImage(colframe,1,1,dim[2]+2*width,dim[1]))
-}
-
-frame(puppy,20,.75)
-
-
-
-
-
-framing <- function(photo, width, bright){
+croppedimage <- function (image, rows, columns, planes=NULL){
+    return( image[rows[1]:rows[2], columns[1]:columns[2], ])
+  }  
+showimage <- function (photo){
   s <- dim(photo)
-  framed <- cbind( brighten(photo[,rev(1:width)],bright), photo, brighten(photo[,(s[2]:(1+s[2]-width))],bright))
-  all4 <- rbind(brighten(framed[rev(1:width),],bright), framed, brighten(framed[s[1]:(1+s[1]-width),],bright))
-  return(rasterImage(all4,1,1,s[1]+width,s[2]+width))
-}
-framing(puppy,20,.75)
+  COMP121::canvas(x= c(1,s[2]), y= c(1,s[1]), asp = 1)
+  rasterImage(photo, 1, 1, s[2], s[1])
+  }
 ```
+
+
+```{r}
+brighten <- function(photo, base=.50){
+  b <- base + (1-base)*photo
+  return(b)
+  }
+
+
+framing <- function(photo, width=20){
+  s <- dim(photo)
+  framed <- cbind( brighten(photo[,rev(1:width)]), photo, brighten(photo[,(s[2]:(1+s[2]-width))]))
+  all4 <- rbind(brighten(framed[rev(1:width),]), framed, brighten(framed[s[1]:(1+s[1]-width),]))
+  showimage(all4)
+}
+
+framing(puppy[,,3],width=20)
+```
+
+```{r}
+
+kane<-readJPEG(getURLContent("http://www.thes4p.com/wp-content/uploads/2013/06/patrick-kane.jpg"))
+framing(kane[,,3],width=40)

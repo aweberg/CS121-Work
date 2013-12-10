@@ -16,8 +16,8 @@ install_url("http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1
 ```
 ## Downloading COMP121_0.1.tar.gz from
 ## http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1.tar.gz
-## Installing package from /tmp/RtmpcShVAF/COMP121_0.1.tar.gz Installing
-## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/RtmpcShVAF/COMP121'
+## Installing package from /tmp/Rtmpa7jY45/COMP121_0.1.tar.gz Installing
+## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/Rtmpa7jY45/COMP121'
 ## \ --library='/home/aweberg/R/x86_64-pc-linux-gnu-library/3.0' \
 ## --with-keep.source --install-tests
 ```
@@ -99,7 +99,7 @@ rasterImage(all4, 1, 1, 40 + 216, 40 + 198)
 
 
 ```r
-canvas(x = c(1, 220), y = c(1, 220), asp = 1)
+canvas(x = c(1, 240), y = c(1, 240), asp = 1)
 brighten <- function(photo, base) {
     a <- base + (1 - base) * photo
     b <- dim(photo)
@@ -113,36 +113,46 @@ brighten(puppy, 0.75)
 
 
 ```r
-canvas(x = c(1, 240), y = c(1, 220), asp = 1)
-frame <- function(photo, width, base) {
-    dim <- dim(photo)
-    colframe <- cbind(brighten(photo[1:dim[1], rev(1:width), ], base), photo, 
-        brighten(photo[1:dim[1], dim[2]:(1 + dim[2] - width), ], base))
-    return(rasterImage(colframe, 1, 1, dim[2] + width, dim[1]))
+croppedimage <- function(image, rows, columns, planes = NULL) {
+    return(image[rows[1]:rows[2], columns[1]:columns[2], ])
 }
-frame(puppy, 20, 0.75)
+showimage <- function(photo) {
+    s <- dim(photo)
+    COMP121::canvas(x = c(1, s[2]), y = c(1, s[1]), asp = 1)
+    rasterImage(photo, 1, 1, s[2], s[1])
+}
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+
+
+
+```r
+brighten <- function(photo, base = 0.5) {
+    b <- base + (1 - base) * photo
+    return(b)
+}
+
+
+framing <- function(photo, width = 20) {
+    s <- dim(photo)
+    framed <- cbind(brighten(photo[, rev(1:width)]), photo, brighten(photo[, 
+        (s[2]:(1 + s[2] - width))]))
+    all4 <- rbind(brighten(framed[rev(1:width), ]), framed, brighten(framed[s[1]:(1 + 
+        s[1] - width), ]))
+    showimage(all4)
+}
+
+framing(puppy[, , 3], width = 20)
+```
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+
+
 
 ```r
 
-
-
-
-
-framing <- function(photo, width, bright) {
-    s <- dim(photo)
-    framed <- cbind(brighten(photo[, rev(1:width)], bright), photo, brighten(photo[, 
-        (s[2]:(1 + s[2] - width))], bright))
-    all4 <- rbind(brighten(framed[rev(1:width), ], bright), framed, brighten(framed[s[1]:(1 + 
-        s[1] - width), ], bright))
-    return(rasterImage(all4, 1, 1, s[1] + width, s[2] + width))
-}
-framing(puppy, 20, 0.75)
+kane <- readJPEG(getURLContent("http://www.thes4p.com/wp-content/uploads/2013/06/patrick-kane.jpg"))
+framing(kane[, , 3], width = 40)
 ```
 
-```
-## Error: incorrect number of dimensions
-```
-
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
