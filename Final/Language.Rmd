@@ -1,0 +1,55 @@
+FINAL EXAM
+===========
+
+```{r}
+
+require(mosaic)
+fetchData("COMP121/word-hints.R")
+require(plyr)
+
+```
+
+```{r}
+
+letterProportion <- function(v){ 
+    b<-strsplit(v,"")
+    c<-unlist(b)
+    d<-tolower(c)
+    e<-table(d)
+    a<-c()
+    for(k in 1:length(unique(d))){
+      a<-c(a,e[[k]]/nchar(v))
+    }
+    f<-data.frame(letter=names(e),freq=a)
+    return(f)
+}
+
+letterProportion("hello")
+hello<-letterProportion("hello")
+```
+
+```{r}
+freqCompare <- function(v,w){
+  a<-data.frame(English,letter=names(English))
+  b<-join(v,a)
+  diff<-abs(b[2]-b[3])
+  c<-(diff^2)/b[3]
+  return(c)
+}
+  
+freqCompare(hello,English) 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
