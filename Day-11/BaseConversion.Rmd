@@ -1,2 +1,81 @@
 Base Conversion
 ===============
+
+## Task 1
+```{r}
+toBase<-function(Z,b){
+  res<-c()
+  while(Z > 0 ){
+    r<-Z%%b
+    res<-c(r,res)
+    Z<-(Z-r)/b    
+    }
+  return(res)
+  }
+```
+#### Application:
+```{r}
+toBase(13,2)
+toBase(13,3)
+toBase(327,2)
+toBase(327,12)
+toBase(635,12)
+```
+## Task 2
+Going Further
+Given a character vector of digits and a numerical base
+```{r}
+baseToNumeric<-function(Nvec,b){
+  howMany<-length(Nvec)
+  herdsize<-b^((howMany-1):0)
+  return(as.numeric(Nvec)*herdsize)  
+  }
+```
+
+```{r}
+baseToNumeric(c("7","6","5","4"),8)
+```
+```{r}
+baseToNumericSum<-function(Nvec,b){
+  howMany<-length(Nvec)
+  herdsize<-b^((howMany-1):0)
+  return(sum(as.numeric(Nvec)*herdsize))
+  }
+
+baseToNumericSum(c("7","6","5","4"),8)
+```
+### 2.1
+```{r}
+convertAsALoop<-function(Nvec,b){
+  Nvec<-as.numeric(Nvec)
+  sheepCount<-0
+  boxSize<-1
+  for(k in length(Nvec):1){
+    sheepCount<-sheepCount+boxSize*Nvec[k]
+    boxSize<-boxSize*b
+  }
+  return(sheepCount)
+}
+```
+
+```{r}
+convertAsALoop(c("7","6","5","4"),8)
+```
+### 2.2
+```{r}
+convertNoLoop<-function(Nvec,b){
+  #Initialize state
+  a<-length(Nvec)
+  b<-b^((a-1):0)
+  c<-Nvec[a]*b[a]
+  d<-Nvec[a-1]*b[a-1]
+  e<-Nvec[a-2]*b[a-2]
+  f<-Nvec[a-3]*b[a-3]
+  sheepCount<-sum(c,d,e,f)
+  return(sheepCount)
+}
+```
+
+```{r}
+convertNoLoop(c(7,6,5,4),8)
+```
