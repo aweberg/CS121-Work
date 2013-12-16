@@ -1,2 +1,39 @@
 Substitution Cypher
 ===================
+
+
+## Key
+```{r}
+key <- "zoo"
+TheKey <- function(L){which (L==letters)}
+paste(sapply(unlist(strsplit(key,split=NULL)),FUN=TheKey),collapse="")
+```
+
+## Cypher
+```{r}
+set.seed(paste(sapply(unlist(strsplit(key,split=NULL)),FUN=TheKey),collapse=""))
+characters<- c(letters, LETTERS,".",":",",",";",0:9)
+fromandto<-sample(characters)
+fromandto
+```
+
+## Encryption
+```{r}
+CBCoutput<-chartr(paste(characters,collapse=""),paste(fromandto,collapse=""),"Messsage Encrypted")
+CBCoutput
+```
+
+## Decryption
+```{r}
+decoded<-chartr(paste(fromandto,collapse=""),paste(characters,collapse=""),CBCoutput)
+decoded
+```
+
+## Mystery Novel
+(Or whatever literature I happened to have on me)
+```{r}
+paragraph<-chartr(paste(characters,collapse=""),paste(fromandto,collapse=""),"Production of sodium: The sodium ore is halite (largely NaCl), which is obtained either by evaporation of concentrated salt solutions called brines (see photo) or by mining vast salt deposits formed from the evaporation of prehistoric seas.The Cheshire salt field in Britain, for example, is 60 km by 24 km by 400 m thick and contains more than 90 percent NaCl. Other large deposits occur in New Mexico, Michigan, New York, and Kansas.")
+paragraph
+
+decoded<-chartr(paste(fromandto,collapse=""),paste(characters,collapse=""),paragraph)
+decoded
