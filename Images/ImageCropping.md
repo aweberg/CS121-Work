@@ -16,8 +16,8 @@ install_url("http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1
 ```
 ## Downloading COMP121_0.1.tar.gz from
 ## http://dtkaplan.github.io/ScientificComputing/Resources/COMP121_0.1.tar.gz
-## Installing package from /tmp/Rtmp8EMyeJ/COMP121_0.1.tar.gz Installing
-## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/Rtmp8EMyeJ/COMP121'
+## Installing package from /tmp/RtmpKD9Ydo/COMP121_0.1.tar.gz Installing
+## COMP121 '/usr/lib/R/bin/R' --vanilla CMD INSTALL '/tmp/RtmpKD9Ydo/COMP121'
 ## \ --library='/home/aweberg/R/x86_64-pc-linux-gnu-library/3.0' \
 ## --with-keep.source --install-tests
 ```
@@ -157,6 +157,47 @@ framing(kane[, , 3], width = 40)
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
+# More Framing Tasks
+
+```r
+brighten <- function(photo, base = 0.5) {
+    b <- base + (1 - base) * photo
+    return(b)
+}
+
+ColoredFrame <- function(photo, width = 20, Neg = F, closetoBlue = F) {
+    s <- dim(photo)
+    array <- array(dim = c(2 * width + s[1], 2 * width + s[2], 3))
+    for (k in 1:3) {
+        if ((k == 1) & (closetoBlue)) {
+            image <- photo[, , k]
+            framed <- cbind(brighten(image[, rev(1:width)]), image, brighten(image[, 
+                (s[2]:(1 + s[2] - width))]))
+            all4 <- rbind(brighten(framed[rev(1:width), ]), framed, brighten(framed[s[1]:(1 + 
+                s[1] - width), ]))
+        } else {
+            
+            image <- photo[, , k]
+            framed <- cbind(image[, rev(1:width)], image, image[, (s[2]:(1 + 
+                s[2] - width))])
+            all4 <- rbind(framed[rev(1:width), ], framed, framed[s[1]:(1 + s[1] - 
+                width), ])
+            array[, , k] <- all4
+        }
+    }
+    showimage(array)
+}
+```
+
+
+
+```r
+ColoredFrame(kane[, , 3], width = 20, Neg = F, closetoBlue = F)
+```
+
+```
+## Error: incorrect number of dimensions
+```
 
 
 

@@ -182,27 +182,20 @@ testLatency2 <- function(N) {
     wordLength <- round(runif(N, 1, 20))
     for (k in 1:N) {
         x <- sample(letters, wordLength[k])
-        word <- paste(x, collapse = "")  # Puts words together by amount of space between ''
+        word <- paste(x, collapse = "")
         phrase <- paste("Type the word, '", word, "' ", sep = " ")
         command <- readline(phrase)
-        
         Sys.sleep(runif(1, min = 1, max = 5))
         before <- Sys.time()
-        
         while (command != word) {
-            command <- readline("Look Again")
-        }  # Waiting for it to look for word
-        
-        
+            command <- readline("Try Again")
+        }
         readline("Press Enter:")
         after <- Sys.time()
         delay <- as.numeric(after - before)
         cat(rep("\n", 20))
         result[k] <- delay
-        
     }
-    
-    
     table <- data.frame(`Word Length` = WordLength, Latency = result)
     return(table)
 }

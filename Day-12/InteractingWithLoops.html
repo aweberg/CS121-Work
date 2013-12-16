@@ -350,27 +350,20 @@ latencyData
     wordLength &lt;- round(runif(N, 1, 20))
     for (k in 1:N) {
         x &lt;- sample(letters, wordLength[k])
-        word &lt;- paste(x, collapse = &quot;&quot;)  # Puts words together by amount of space between &#39;&#39;
+        word &lt;- paste(x, collapse = &quot;&quot;)
         phrase &lt;- paste(&quot;Type the word, &#39;&quot;, word, &quot;&#39; &quot;, sep = &quot; &quot;)
         command &lt;- readline(phrase)
-
         Sys.sleep(runif(1, min = 1, max = 5))
         before &lt;- Sys.time()
-
         while (command != word) {
-            command &lt;- readline(&quot;Look Again&quot;)
-        }  # Waiting for it to look for word
-
-
+            command &lt;- readline(&quot;Try Again&quot;)
+        }
         readline(&quot;Press Enter:&quot;)
         after &lt;- Sys.time()
         delay &lt;- as.numeric(after - before)
         cat(rep(&quot;\n&quot;, 20))
         result[k] &lt;- delay
-
     }
-
-
     table &lt;- data.frame(`Word Length` = WordLength, Latency = result)
     return(table)
 }

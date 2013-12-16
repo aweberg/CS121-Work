@@ -87,6 +87,35 @@ kane<-readJPEG(getURLContent("http://www.thes4p.com/wp-content/uploads/2013/06/p
 framing(kane[,,3],width=40)
 ```
 
+# More Framing Tasks
+```{r}
+brighten <- function(photo, base=.50){
+  b <- base + (1-base)*photo
+  return(b)}
+  
+ColoredFrame <- function(photo, width=20, Neg=F, closetoBlue=F) {
+   s <- dim(photo)
+  array <- array(dim=c(2*width+s[1], 2*width+s[2],3)) 
+   for (k in 1:3) {
+     if ((k == 1) & (closetoBlue)){
+        image <- photo[,,k]
+  framed <- cbind( brighten(image[,rev(1:width)]), image, brighten(image[,(s[2]:(1+s[2]-width))] ))
+  all4 <- rbind(brighten(framed[rev(1:width),]), framed, brighten(framed[s[1]:(1+s[1]-width),]))
+        }
+     else{
+     
+     image <- photo[,,k]
+  framed <- cbind( image[,rev(1:width)], image, image[,(s[2]:(1+s[2]-width))] )
+  all4 <- rbind(framed[rev(1:width),], framed, framed[s[1]:(1+s[1]-width),])
+  array[,,k]<- all4 
+   }}
+   showimage(array)
+   }
 
+```
+
+```{r}
+ColoredFrame(kane[,,3],width=20,Neg=F,closetoBlue=F)
+```
 
 
