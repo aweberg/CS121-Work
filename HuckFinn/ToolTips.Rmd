@@ -1,2 +1,47 @@
-Huck Finn
-=========
+Tool Tips
+============
+
+
+## From R to HTML
+<style>
+.hiword {background:pink;}
+</style>
+This <span class='hiword' title='Example of tooltip!'>word</span> has a tooltip.
+
+```{r}
+formatWord<-function(words,translation,class){
+  if (is.na(translation))
+    return(words)
+  wordsanswer<-paste("<span class='", class,"' ",sep="")
+  translationanswer<-paste(wordsanswer,"title='",translation,"'>",sep="")
+  classanswer<-paste(translationanswer,words,"</span>",sep="")
+  return(classanswer)
+}
+```
+
+```{r}
+formatWord("Hello", "hi there!", class = "hiword")
+```
+```{r results='asis'}
+cat(formatWord("Hello", "hi there!", class = "hiword"), "to", "all", "of", "you", 
+    "in", formatWord("Television Land.", "TV viewers", class = "hiword"))
+```
+## Your Task
+```{r results='asis'}
+formatString<-function(words,tips,styles){
+  results<-c()
+  for (k in 1:length(words)){
+    results[k]<-formatWord(words[k],tips[k],styles[k])
+  }
+  return(cat(results))
+}
+
+formatString(c("How","now","brown","cow","!"),c("How are you doing?",NA,"Why brown?","bovine","enthusiasm"),c("hiword","","brown","blue","hiword"))
+formatString(c("Shine", "On", "You", "Crazy","Diamond","..."),c("Like the sun!","on what?","No me!","who Syd?","Valuable!","Alright lets hear it!"), c("fancyfont", "fancyfont","fancyfont","fancyfont","fancyfont"))
+```
+<style>
+.hiword {background:pink;}
+.brown {background:brown;}
+.blue {background:lightslateblue;}
+.fancyfont {font: oblique 40px cursive;}
+</style>
